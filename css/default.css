@@ -13,6 +13,8 @@ html > body {
     --theme-color: blue;
 }
 
+h1, h2, h3, h4, h4 { text-align: center; }
+
 body > header{ height: 10%; }
 body > header{ background: var(--bg-color); }
 body > main{   height: 85%; }

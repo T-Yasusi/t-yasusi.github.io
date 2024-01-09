@@ -27,9 +27,9 @@ const output={
 };
 
 window['output']=output;
-const modules = [
-    loadModule('./output.js')
-];
+// const modules = [
+//     loadModule('./output.js')
+// ];
 
 window.addEventListener('DOMContentLoaded', ()=>{
     console.log('===== js/js-test.js DOMCContentLoaded START =====');

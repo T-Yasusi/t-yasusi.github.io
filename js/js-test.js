@@ -26,10 +26,10 @@ const output={
     }
 };
 
-// window['output']=output;
-// const modules = [
-//     loadModule('./output.js')
-// ];
+window['output']=output;
+const modules = [
+    loadModule('./output.js')
+];
 
 window.addEventListener('DOMContentLoaded', ()=>{
     console.log('===== js/js-test.js DOMCContentLoaded START =====');
@@ -42,9 +42,10 @@ window.addEventListener('DOMContentLoaded', ()=>{
     // });
 //    setTimeout(()=> run(), 1000);
     
-    function run(){
-        const f=Function(aceUtil.getValue());
-        f();
-    }
     console.log('===== js/js-test.js DOMCContentLoaded FINISH =====');
 });
+
+function run(){
+    const f=Function(aceUtil.getValue());
+    f();
+}

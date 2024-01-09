@@ -15,18 +15,19 @@ const loadModule = async (filepath)=>{
 
 import aceUtil from './aceUtil.js';
 
-const modules = [
-    loadModule('./output.js')
-];
+// const modules = [
+//     loadModule('./output.js')
+// ];
 
 window.addEventListener('DOMContentLoaded', ()=>{
     console.log('===== js/js-test.js DOMCContentLoaded START =====');
     aceUtil.set('editor', 'ace/mode/javascript', 'ace/theme/monokai');
-    aceUtil.setValue('output.log("Hello World!")')
+    aceUtil.setValue('result.log("Hello World!")')
 
-    Promise.all(modules).then(()=>{
-	run();
-    });
+    run();
+    // Promise.all(modules).then(()=>{
+    // 	run();
+    // });
 //    setTimeout(()=> run(), 1000);
     
     function run(){

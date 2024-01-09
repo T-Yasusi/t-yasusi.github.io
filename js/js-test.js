@@ -1,3 +1,4 @@
+import aceUtil from './aceUtil.js';
 import loadModule from './loadModule.js';
 // const loadModule = async (filepath)=>{
 //     return await import(filepath).then(module=>{
@@ -12,8 +13,6 @@ import loadModule from './loadModule.js';
 //         }
 //     });
 // }
-
-import aceUtil from './aceUtil.js';
 
 // const output={
 //     log: (...args)=>{
@@ -37,12 +36,13 @@ window.addEventListener('DOMContentLoaded', ()=>{
     aceUtil.set('editor', 'ace/mode/javascript', 'ace/theme/monokai');
     aceUtil.setValue('output.log("Hello World!")')
 
-//    run();
-    Promise.all(modules).then(()=>{
-	run();
-    });
-//    setTimeout(()=> run(), 1000);
-    
+    //    run();
+    // Promise.all(modules).then(()=>{
+    // 	run();
+    // });
+//    settimeout(()=> run(), 1000);
+
+    document.getElementById('do').addEventListener('click', ()=> run());
     console.log('===== js/js-test.js DOMCContentLoaded FINISH =====');
 });
 

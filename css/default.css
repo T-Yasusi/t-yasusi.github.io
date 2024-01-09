@@ -20,3 +20,5 @@ body > header{ background: var(--bg-color); }
 body > main{   height: 85%; }
 body > footer{ height: 5%; }
 body > footer{ background: var(--bg-color); }
+
+.centering { text-align: center; }

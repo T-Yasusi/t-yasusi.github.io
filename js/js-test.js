@@ -26,7 +26,7 @@ const output={
     }
 };
 
-window['output']=output;
+// window['output']=output;
 // const modules = [
 //     loadModule('./output.js')
 // ];

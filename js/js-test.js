@@ -1,4 +1,18 @@
-import loadModule from './loadModule.js';
+// import loadModule from './loadModule.js';
+const loadModule = async (filepath)=>{
+    return await import(filepath).then(module=>{
+        for( const [key, val] of Object.entries(module) ){
+            if( window[key]==null ){
+                window[key]=val;
+                console.log('Set Global Property '+key);
+            }
+            else{
+                console.error('! Global.'+key+' already defined');
+            }
+        }
+    });
+}
+
 import aceUtil from './aceUtil.js';
 
 const modules = [

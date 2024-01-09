@@ -33,6 +33,7 @@ const modules = [
 
 window.addEventListener('DOMContentLoaded', ()=>{
     console.log('===== js/js-test.js DOMCContentLoaded START =====');
+    console.log('aaa');
     aceUtil.set('editor', 'ace/mode/javascript', 'ace/theme/monokai');
     aceUtil.setValue('output.log("Hello World!")')
 

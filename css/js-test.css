@@ -9,11 +9,12 @@ main {
     flex: 2;
 }
 
-#output-wrapper {
+#result-wrapper {
     height: 25%;
     margin: 3px;
 }
-#output{
+
+#result{
     height: 100%;
     border: black solid 0.33pt;
     overflow: scroll;

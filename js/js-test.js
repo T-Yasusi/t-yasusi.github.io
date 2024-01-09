@@ -33,15 +33,15 @@ const modules = [
 
 window.addEventListener('DOMContentLoaded', ()=>{
     console.log('===== js/js-test.js DOMCContentLoaded START =====');
-    console.log('aaa');
+    console.log('bbb');
     aceUtil.set('editor', 'ace/mode/javascript', 'ace/theme/monokai');
     aceUtil.setValue('output.log("Hello World!")')
 
 //    run();
-    // Promise.all(modules).then(()=>{
-    // 	run();
-    // });
-    setTimeout(()=> run(), 1000);
+    Promise.all(modules).then(()=>{
+	run();
+    });
+//    setTimeout(()=> run(), 1000);
     
     console.log('===== js/js-test.js DOMCContentLoaded FINISH =====');
 });

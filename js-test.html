@@ -18,12 +18,19 @@
 
     <main>
       <h2>Code入力</h2>
-
+      <div class="centering">
+	ファイル:
+	<select id="code-select">
+	  <option value="hello_world.js">Hello World</option>
+	  <option value="test.js">test</option>
+	</select>
+      </div>
       <div id="editor">
       </div>
 
       <div class="centering">
-	<button id="do">実行</button>
+	<button id="do"   >実行</button>
+	<button id="clear">結果クリア</button>
       </div>
       <div id="result-wrapper">
 	<div id="result">

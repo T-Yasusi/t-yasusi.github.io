@@ -1,0 +1,1 @@
+output.log('Hello World');

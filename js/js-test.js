@@ -2,7 +2,8 @@ import aceUtil from './aceUtil.js';
 import loadModule from './loadModule.js';
 
 const modules = [
-    loadModule('./output.js')
+    loadModule('./output.js'),
+    loadModule('./modules/calc.js')
 ];
 
 window.addEventListener('DOMContentLoaded', ()=>{

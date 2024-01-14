@@ -3,7 +3,8 @@ import loadModule from './loadModule.js';
 
 const modules = [
     loadModule('./output.js'),
-    loadModule('./modules/calc.js')
+    loadModule('./modules/calc.js'),
+    loadModule('./modules/svg.js')
 ];
 
 window.addEventListener('DOMContentLoaded', ()=>{
@@ -12,8 +13,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
     aceUtil.set('editor', 'ace/mode/javascript', 'ace/theme/monokai');
     aceUtil.setValue('output.log("Hello World!")')
 
-//    Promise.all(modules).then(()=> run());
-    document.getElementById('do').addEventListener('click', ()=> run());
+    document.getElementById('run').addEventListener('click', ()=> run());
     document.getElementById('clear').addEventListener('click', ()=> clearResult());
 
     const codeSelect=document.getElementById('code-select');
@@ -22,6 +22,8 @@ window.addEventListener('DOMContentLoaded', ()=>{
         if( filePath.length>0 ){
 	    aceUtil.loadText('./js/test/'+filePath).then(()=>{
 		console.log('Load file ./js/test/'+filePath);
+		if( document.getElementById('auto-clear').checked ) clearResult();
+                if( document.getElementById('auto-run').checked ) run();
 	    });
 	}
     });
@@ -35,5 +37,6 @@ function clearResult(){
 
 function run(){
     const f=Function(aceUtil.getValue());
+    if( document.getElementById('auto-clear').checked ) clearResult();
     f();
 }

@@ -36,7 +36,8 @@ function clearResult(){
 }
 
 function run(){
-    const { code }=Babel.transform(aceUtil.getValue(), { presets: ['env'] });
+//    const { code }=Babel.transform(aceUtil.getValue(), { presets: ['env'] });
+    const { code }=Babel.transform(aceUtil.getValue(), { presets: ['env'], plugins: ['operator_overload'] });
     console.log('Transpile Code', code);
     const f=Function(code);
 //    const f=Function(aceUtil.getValue());

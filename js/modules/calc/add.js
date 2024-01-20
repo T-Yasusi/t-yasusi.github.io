@@ -1,4 +1,4 @@
-const add=(a, b=void 0)=>{
+const add=(a, b)=>{
     if( typeof(a)==='number' && typeof(b)==='undefined' ) return a;
     else if( typeof(a)==='number' && typeof(b)==='number' ) return a+b;
     else if( typeof(a)==='object' && typeof(a.add)==='function' ) return a.add(b);
@@ -8,6 +8,7 @@ const add=(a, b=void 0)=>{
 }
 
 export default (...args)=>{
-    return args.reduce((sum, a)=> add(sum, a), 0);
+    if( args.length===1 ) return args[0];
+    else return args.reduce((sum, a)=> add(sum, a));
 }
 

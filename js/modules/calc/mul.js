@@ -8,7 +8,8 @@ const mul=(a, b=void 0)=>{
 }
 
 export default (...args)=>{
-    return args.reduce((sum, a)=> mul(sum, a), 1);
+    if( args.length===1 ) return args[0]
+    else return args.reduce((sum, a)=> mul(sum, a));
 }
 
 

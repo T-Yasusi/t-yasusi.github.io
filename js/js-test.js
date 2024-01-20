@@ -36,7 +36,10 @@ function clearResult(){
 }
 
 function run(){
-    const f=Function(aceUtil.getValue());
+    const { code }=Babel.transform(aceUtil.getValue(), { presets: ['env'] });
+    console.log('Transpile Code', code);
+    const f=Function(code);
+//    const f=Function(aceUtil.getValue());
     if( document.getElementById('auto-clear').checked ) clearResult();
     f();
 }

@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@babel/standalone@^7.23.8":
+  version "7.23.8"
+  resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.23.8.tgz#534b991afed6aead40ff925ef465c781bd8f7e77"
+  integrity sha512-i0tPn3dyKHbEZPDV66ry/7baC1pznRU02R8sU6eJSBfTOwMkukRdYuT3ks/j/cvTl4YkHMRmhTejET+iyPZVvQ==
+
 ace-builds@^1.32.3:
   version "1.32.3"
   resolved "https://registry.yarnpkg.com/ace-builds/-/ace-builds-1.32.3.tgz#13ea72e27339ffd56077149e8b00a31e6f685d38"

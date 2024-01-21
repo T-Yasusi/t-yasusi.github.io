@@ -37,8 +37,8 @@ Webページ上でサンプルコードを書き編集できる
 - diff.central $(f(x), x_0, \Delta x=1.0^{-8})$ 中心差分法
 - diff.backward $(f(x), x_0, \Delta x=1.0^{-8})$ 後方差分法
 #### 数値積分
-- integral.trapezoid$(f(x), x_0, x_1, N)$ 台形法
-- integral.simpson$(f(x), x_0, x_1, N)$ シンプソン法
+- integral.trapezoid $(f(x), x_0, x_1, N)$ 台形法
+- integral.simpson $(f(x), x_0, x_1, N)$ シンプソン法
 ##### 二重指数型積分 (Double Exponantial)
 - integral.de.minusOneToOne $(f(x), \Delta x=1.0^{-8}) $-1$と$1$に特異点を持つ関数用
 - integral.de.zeroToInf $(f(x), \Delta x=1.0^{-8})$ $0$から$\infty$までの積分

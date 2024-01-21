@@ -1,5 +1,5 @@
 # JavaScriptで数値計算デモページ
-自作JavaScriptの数値計算ライブラリのためのデモページ
+自作JavaScriptの数値計算ライブラリのためのデモページ  
 Webページ上でサンプルコードを書き編集できる
 
 ## 機能
@@ -39,14 +39,24 @@ Webページ上でサンプルコードを書き編集できる
 #### 数値積分
 - integral.trapezoid $(f(x), x_0, x_1, N)$ 台形法
 - integral.simpson $(f(x), x_0, x_1, N)$ シンプソン法
-##### 二重指数型積分 (Double Exponantial)
+#### 二重指数型積分 (Double Exponantial)
 - integral.de.minusOneToOne $(f(x), \Delta x=1.0^{-8}) $-1$と$1$に特異点を持つ関数用
-- integral.de.zeroToInf $(f(x), \Delta x=1.0^{-8})$ $0$から$\infty$までの積分
-- integral.de.minusInfToInf $(f(x), \Delta x=1.0^{-8})$ $-\infty$から$\infty$までの積分
+- integral.de.zeroToInf $(f(x), \Delta x=1.0^{-8})$ $0$から $\infty$までの積分
+- integral.de.minusInfToInf $(f(x), \Delta x=1.0^{-8})$ $-\infty$から $\infty$までの積分
 
 #### $f(x)=0$の数値解放
 - solver.byselection $(f(x), x_0, \Delta x=1.0^{-8})$ 二分法
 - solver.newton $(f(x), x_0, \Delta x=1.0^{-8})$ ニュートン法
-##### 多項式の解放
+#### 多項式の解放
 - solver.polynomial.bastow $([a_0, \cdots, a_n], \Delta x=1.0^{-8})$ ベアストウ法
 - solver.polynomial.dka $([a_0, \cdots, a_n], \Delta x=1.0^{-8})$ DKA法
+
+#### 演算子オーバーロード
+`+,-,*,/`の演算子はBabelのpluginを使ってオーバーロードされており
+```js:befor
+a+b;
+```
+```js:after
+mul(a, b);
+```
+のように変換される。そのため、前述のベクトルや行列、複素数クラスにも適応される。

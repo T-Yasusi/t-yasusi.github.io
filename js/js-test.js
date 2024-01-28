@@ -17,7 +17,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
         const filePath=[...codeSelect.children].find(e=> e.selected).value;
         if( filePath.length>0 ){
 	    aceUtil.loadText('./js/test/'+filePath).then(()=>{
-		console.log('Load file ./js/test/'+filePath);
+//		console.log('Load file ./js/test/'+filePath);
 		if( document.getElementById('auto-clear').checked ) clearResult();
                 if( document.getElementById('auto-run').checked ) run();
 	    });
@@ -33,9 +33,8 @@ function clearResult(){
 }
 
 function run(){
-//    const { code }=Babel.transform(aceUtil.getValue(), { presets: ['env'] });
     const { code }=Babel.transform(aceUtil.getValue(), { presets: ['env'], plugins: ['operator_overload'] });
-    console.log('Transpile Code', code);
+//    console.log('Transpile Code', code);
     const f=Function(code);
 //    const f=Function(aceUtil.getValue());
     if( document.getElementById('auto-clear').checked ) clearResult();

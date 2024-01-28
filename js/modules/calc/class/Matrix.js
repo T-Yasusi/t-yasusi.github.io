@@ -101,7 +101,7 @@ class Matrix extends Array{
 	throw new Error('!!! Matrix.mul invarid argument !!! '+typeof(a));
     }
 
-    toString(){ return '['+this.reduce((sum, a)=> sum+', '+a.toString())+']'; }
+    toString(){ return this.reduce((sum, a)=> sum+'\n'+a.toString()); }
 }
 
 export default Matrix;

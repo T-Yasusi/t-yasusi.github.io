@@ -13,6 +13,17 @@ Webページ上でサンプルコードを書き編集できる
 - Complex 複素数
 - Vector ベクトル
 - Matrix 行列
+#### 逆行列 
+- linearAlgebra.det $(\bf A)$ 行列式
+- linearAlgebra.reverseBySweep $(\bf A)$ (ガウスジョルダンの消去法)掃き出し法による逆行列
+#### LU分解
+- linearAlgebra.LU.rightLooking $(\bf A)$ 
+- linearAlgebra.LU.leftLooking $(\bf A)$
+
+#### QR分解
+- linearAlgebra.QR.gramSchmidt $(\bf A)$ グラムシュミット法
+- linearAlgebra.QR.householder $(\bf A)$ ハウスホルダー法
+
 #### 四則演算
 ベクトル、行列、複素数などは対応済み
 - add $(a, b)$ 足し算

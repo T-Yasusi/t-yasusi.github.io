@@ -9,14 +9,17 @@ import swapRow from './swapRow.js'
 
 import searchPivot from './util/searchPivot.js'
 
+import det from './det.js'
+
 export default mat=>{
     if( (mat instanceof Matrix)===false ) throw new Error('!!! linearAlgebra.reverseBySweep argment shoud be Matrix !!! '+typeof(mat));
     if( mat.colSize!==mat.rowSize ) throw new Error('!!! linearAlgebra.reverseBySweep Matrix should be Square !!! '+mat.colSize+' '+mat.rowSize);
+
+    if( det(mat)===0 ) throw new Error('!!! linearAlgebra.reverseBySweep det(mat)=0, so reverse matrix is not exsist !!!');
+    
     const copied=new Matrix(mat);
     const result=new Matrix(mat.colSize, mat.rowSize);
     for( let i=0; i<mat.colSize; i++ ) result[i][i]=1;
-    // console.log('copied ', copied);
-    // console.log('result ', result);
     
     for( let i=0; i<mat.colSize; i++ ){
 	const pivot=searchPivot(mat, i);
@@ -39,8 +42,6 @@ export default mat=>{
 	    }
         }
     }
-    // console.log('copied ', copied.toString());
-    // console.log('result ', result.toString());
     
     for( let i=mat.colSize-1; i>=0; i-- ){
 	for( let j=0; j<i; j++ ){
@@ -51,8 +52,6 @@ export default mat=>{
 	    }
 	}
     }
-    // console.log('copied ', copied.toString());
-    // console.log('result ', result.toString());
         
     return result;
 }

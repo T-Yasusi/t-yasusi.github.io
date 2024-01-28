@@ -1,22 +1,18 @@
 import aceUtil from './aceUtil.js';
 import loadModule from './loadModule.js';
 
-const modules = [
-    loadModule('./output.js'),
-    loadModule('./modules/calc.js'),
-    loadModule('./modules/svg.js')
-];
+loadModule('./output.js');
+loadModule('./modules/calc.js');
+loadModule('./modules/svg.js');
 
 window.addEventListener('DOMContentLoaded', ()=>{
     console.log('===== js/js-test.js DOMCContentLoaded START =====');
-    console.log('ccc');
     aceUtil.set('editor', 'ace/mode/javascript', 'ace/theme/monokai');
     aceUtil.setValue('output.log("Hello World!")')
-
+    
+    const codeSelect=document.getElementById('code-select');
     document.getElementById('run').addEventListener('click', ()=> run());
     document.getElementById('clear').addEventListener('click', ()=> clearResult());
-
-    const codeSelect=document.getElementById('code-select');
     codeSelect.addEventListener('change', ()=>{
         const filePath=[...codeSelect.children].find(e=> e.selected).value;
         if( filePath.length>0 ){
@@ -27,6 +23,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
 	    });
 	}
     });
+    codeSelect.dispatchEvent(new Event('change'));
     console.log('===== js/js-test.js DOMCContentLoaded FINISH =====');
 });
 

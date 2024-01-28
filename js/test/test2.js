@@ -8,5 +8,5 @@ output.log(e1 instanceof Vector);
 output.log(add(e0, e1));
 output.log(e0-e1);
 output.log(e0*(e1+e0));
-output.log(e0/2);
+// output.log(e0/2);
 

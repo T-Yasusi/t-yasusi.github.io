@@ -12,9 +12,9 @@ const output={
         const elem=document.getElementById('result');
         const div=document.createElement('div');	
 	div.innerHTML+='\\[ ';
-	args.forEach(a=>{ console.log(a.toTex()); div.innerHTML+=a.toTex()});
+	args.forEach(a=>{ div.innerHTML+=typeof a.toTex ==='function' ? a.toTex(): a });
 	div.innerHTML+=' \\]';
-	console.log(div);
+//	console.log(div);
 	elem.appendChild(div);
 	restartMathJax();
     }    

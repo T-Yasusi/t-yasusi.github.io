@@ -48,13 +48,40 @@ class Complex{
     
     toString(){
 	if( Math.abs(this.real)<=1.0e-8 && Math.abs(this.imag)<=1.0e-8 ) return '0';
-	if( Math.abs(this.real)>1.0e-8 && Math.abs(this.imag)<=1.0e-8 ) return ''+toEffNum(this.real);
-	if( Math.abs(this.real)<=1.0e-8 && Math.abs(this.imag)>1.0e-8 ) return ''+toEffNum(this.imag)+'*i';
+	if( Math.abs(this.real)<=1.0e-8 && Math.abs(this.imag-1)<=1.0e-8 ) return 'i';
+	if( Math.abs(this.real)<=1.0e-8 && Math.abs(this.imag+1)<=1.0e-8 ) return '-i';
+	
+	let str='';
+	if( Math.abs(this.real-1)<1.0e-8 ) str+='1';
+	else if( Math.abs(this.real+1)<1.0e-8 ) str+='-1';
+	else str+=toEffNum(this.real);
 
-	if( this.imag>1.0e-8  ) return ''+toEffNum(this.real)+'+'+toEffNum(this.imag)+'*i';
-	if( this.imag<-1.0e-8 ) return ''+toEffNum(this.real)+toEffNum(this.imag)+'*i';
+	if( Math.abs(this.imag)<1.0e-8 ){}
+	else if( Math.abs(this.imag-1)<1.0e-8 ) str+='+i';
+	else if( Math.abs(this.imag+1)<1.0e-8 ) str+='-i';
+	else if( this.imag>1.0e-8 ) str+='+'+toEffNum(this.imag)+'i';
+	else str+=toEffNum(this.imag)+'i';
 
-	throw new Error('!!! Complex.toString !!! Invaild member value');
+	return str;
+    }
+
+    toTex(){
+	if( Math.abs(this.real)<=1.0e-8 && Math.abs(this.imag)<=1.0e-8 ) return '0';
+	if( Math.abs(this.real)<=1.0e-8 && Math.abs(this.imag-1)<=1.0e-8 ) return 'i';
+	if( Math.abs(this.real)<=1.0e-8 && Math.abs(this.imag+1)<=1.0e-8 ) return '-i';
+	
+	let str='';
+	if( Math.abs(this.real-1)<1.0e-8 ) str+='1';
+	else if( Math.abs(this.real+1)<1.0e-8 ) str+='-1';
+	else str+=toEffNum(this.real);
+
+	if( Math.abs(this.imag)<1.0e-8 ){}
+	else if( Math.abs(this.imag-1)<1.0e-8 ) str+='+i';
+	else if( Math.abs(this.imag+1)<1.0e-8 ) str+='-i';
+	else if( this.imag>1.0e-8 ) str+='+'+toEffNum(this.imag)+'i';
+	else str+=toEffNum(this.imag)+'i';
+
+	return str;
     }
     toEffNum(){ return this.toString(); }
 }

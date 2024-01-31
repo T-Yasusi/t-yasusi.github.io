@@ -15,5 +15,5 @@ export default {
     setValue: (text, point=-1)=>{ editor.setValue(text, point); },
     getValue: ()=>{ return editor.getValue(); },
 
-    loadText: async (url)=>{ return fetch(url, { catch: "no-store" } ).then(res=> res.text()).then(text=> editor.setValue(text, -1)); }
+    loadText: async (url)=>{ return fetch(url, { cache: "no-store" } ).then(res=> res.text()).then(text=> editor.setValue(text, -1)); }
 }

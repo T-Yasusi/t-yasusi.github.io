@@ -4,6 +4,7 @@ import add from '../add.js';
 import sub from '../sub.js';
 import Complex from './Complex.js'
 import Vector from './Vector.js'
+import toEffNum from '../util/toEffNum.js'
 
 class Matrix extends Array{
     static get [Symbol.species](){ return Array; }
@@ -101,7 +102,17 @@ class Matrix extends Array{
 	throw new Error('!!! Matrix.mul invarid argument !!! '+typeof(a));
     }
 
-    toString(){ return this.reduce((sum, a)=> sum+'\n'+a.toString()); }
+    toString(){ return this.reduce((sum, a)=> sum+'<br>'+a.toString()); }
+    toString(){
+	let str='<table>'
+	for( let i=0; i<this.colSize; i++ ){
+	    str+='<tr> <td>[';
+	    for( let j=0; j<this.rowSize-1; j++ ) str+='<td>'+toEffNum(this[i][j])+',';
+	    str+='<td>'+toEffNum(this[i][this.rowSize-1])+'<td>]</tr>';
+	}
+	str+='</table>';
+	return str;
+    }
 }
 
 export default Matrix;

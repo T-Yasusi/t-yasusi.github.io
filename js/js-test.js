@@ -23,7 +23,10 @@ window.addEventListener('DOMContentLoaded', ()=>{
 	    });
 	}
     });
-    codeSelect.dispatchEvent(new Event('change'));
+
+    // loadModuleを待つため
+    //    codeSelect.dispatchEvent(new Event('change'));
+    setTimeout(()=>{ codeSelect.dispatchEvent(new Event('change')); }, 1000);
     console.log('===== js/js-test.js DOMCContentLoaded FINISH =====');
 });
 

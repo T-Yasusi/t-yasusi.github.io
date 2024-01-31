@@ -4,25 +4,22 @@
     <meta charset="utf-8">
     
     <title>JavaScript実行テストページ</title>
-    <!-- <link rel="stylesheet" href="css/default.css"> -->
-    <!-- <link rel="stylesheet" href="css/js-test.css"> -->
-    <!-- <link rel="stylesheet" href="css/modal.css"> -->
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/js-test.css">
+    <link rel="stylesheet" href="css/modal.css">
     
     <script src="js/lib/@babel/standalone/babel.js"></script>
     <script src="js/operator_overload.js"></script>
-    <!-- <script src="js/lib/ace-builds/src-noconflict/ace.js"></script> -->
-
+    <script src="js/lib/ace-builds/src-noconflict/ace.js"></script>
     
     <script type="text/javascript"
 	    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
     
-    <!-- <script type="module" src="js/js-test.js"></script> -->
+    <script type="module" src="js/js-test.js"></script>
   </head>
 
-  <body>
-    \[ aaa=\int f(x) dx \]
-    
+  <body>    
     <header>
       <h1>JavaScript実行テストページ</h1>
     </header>
@@ -51,10 +48,15 @@
 	自動実行<input type="checkbox" id="auto-run" checked></input>
 	<button id="run"   >実行</button>
 	自動クリア<input type="checkbox" id="auto-clear" checked></input>
-	<button id="clear">結果クリア</button>
+	<button id="clear" checked>結果クリア</button>
       </div>
       <div id="result-wrapper">
 	<div id="result">
+	  \[ aaa=\int f(x) dx \]
+	  \[
+	  \begin{matrix} 1.00 & 2.00 & 3.00 \\3.00 & 2.00 & 1.00 \\1.00 & 1.00 & 0 \end{matrix}
+	  \]
+	  \[ aaa=\int f(x) dy \]
 	</div>
       </div>
     </main>

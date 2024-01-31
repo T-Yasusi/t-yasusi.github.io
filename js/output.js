@@ -11,12 +11,14 @@ const output={
     math: (...args)=>{
         const elem=document.getElementById('result');
         const div=document.createElement('div');	
-	div.innerHTML+='\\[\\n';
+	div.innerHTML+='\\[ ';
 	args.forEach(a=>{ console.log(a.toTex()); div.innerHTML+=a.toTex()});
-	div.innerHTML+=']\\\\n';
+	div.innerHTML+=' \\]';
 	console.log(div);
-	console.log(div.innerHTML);
 	elem.appendChild(div);
+	restartMathJax();
     }    
 };
 export { output };
+
+function restartMathJax(){ MathJax.Hub.Queue(["Typeset", MathJax.Hub, "dynamicElement"]); }

@@ -113,14 +113,16 @@ class Matrix extends Array{
 	str+='</table>';
 	return str;
     }
+
     toTex(){
-	let str='<pmatrix>';
+	let str='\\begin{pmatrix}';
 	for( let i=0; i<this.colSize; i++ ){
 	    for( let j=0; j<this.rowSize; j++ ) str+=toEffNum(this[i][j])+' & ';
 	    str=str.slice(0, -2)+'\\\\';
 	}
 	str=str.slice(0, -2);
-	str+='<\pmatrix>';
+	str+='\\end{pmatrix} ';
+//	console.log('Matrix.toTex()', str);
 	return str;
     }
 }

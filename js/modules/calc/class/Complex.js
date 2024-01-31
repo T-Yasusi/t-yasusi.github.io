@@ -1,3 +1,5 @@
+import toEffNum from '../util/toEffNum.js'
+
 class Complex{
     constructor(a, b){
 	this.real=a;
@@ -46,14 +48,15 @@ class Complex{
     
     toString(){
 	if( Math.abs(this.real)<=1.0e-8 && Math.abs(this.imag)<=1.0e-8 ) return '0';
-	if( Math.abs(this.real)>1.0e-8 && Math.abs(this.imag)<=1.0e-8 ) return ''+this.real;
-	if( Math.abs(this.real)<=1.0e-8 && Math.abs(this.imag)>1.0e-8 ) return ''+this.imag+'*i';
+	if( Math.abs(this.real)>1.0e-8 && Math.abs(this.imag)<=1.0e-8 ) return ''+toEffNum(this.real);
+	if( Math.abs(this.real)<=1.0e-8 && Math.abs(this.imag)>1.0e-8 ) return ''+toEffNum(this.imag)+'*i';
 
-	if( this.imag>1.0e-8  ) return ''+this.real+'+'+this.imag+'*i';
-	if( this.imag<-1.0e-8 ) return ''+this.real+this.imag+'*i';
+	if( this.imag>1.0e-8  ) return ''+toEffNum(this.real)+'+'+toEffNum(this.imag)+'*i';
+	if( this.imag<-1.0e-8 ) return ''+toEffNum(this.real)+toEffNum(this.imag)+'*i';
 
 	throw new Error('!!! Complex.toString !!! Invaild member value');
     }
+    toEffNum(){ return this.toString(); }
 }
 
 export default Complex;

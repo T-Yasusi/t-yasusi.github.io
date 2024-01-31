@@ -75,10 +75,17 @@ class Vector extends Array{
     }
 
     toString(){
-	let result='[ ';
-	for( let i=0; i<this.length; i++ ) result+=(typeof(this[i])==='number' ? toEffNum(this[i]) : this[i])+', ';
-	result=result.slice(0, -2)+' ]';
-	return result;
+	let str='[ ';
+	for( let i=0; i<this.length; i++ ) str+=(typeof(this[i])==='number' ? toEffNum(this[i]) : this[i])+', ';
+	str=str.slice(0, -2)+' ]';
+	return str;
+    }
+
+    toTex(){
+	let str='\\begin{pmatrix}';
+	for( let i=0; i<this.length; i++ ) str+=toEffNum(this[i])+'& ';
+	str=str.slice(0, -2)+' \\end{pmatrix}';
+	return str;
     }
 }
 

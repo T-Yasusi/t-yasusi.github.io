@@ -102,7 +102,7 @@ class Matrix extends Array{
 	throw new Error('!!! Matrix.mul invarid argument !!! '+typeof(a));
     }
 
-    toString(){ return this.reduce((sum, a)=> sum+'<br>'+a.toString()); }
+//    toString(){ return this.reduce((sum, a)=> sum+'<br>'+a.toString()); }
     toString(){
 	let str='<table>'
 	for( let i=0; i<this.colSize; i++ ){
@@ -111,6 +111,16 @@ class Matrix extends Array{
 	    str+='<td>'+toEffNum(this[i][this.rowSize-1])+'<td>]</tr>';
 	}
 	str+='</table>';
+	return str;
+    }
+    toTex(){
+	let str='<pmatrix>';
+	for( let i=0; i<this.colSize; i++ ){
+	    for( let j=0; j<this.rowSize; j++ ) str+=toEffNum(this[i][j])+' & ';
+	    str=str.slice(0, -2)+'\\\\';
+	}
+	str=str.slice(0, -2);
+	str+='<\pmatrix>';
 	return str;
     }
 }

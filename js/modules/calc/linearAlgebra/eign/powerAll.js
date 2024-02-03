@@ -8,22 +8,32 @@ import abs from '../../abs.js'
 
 import power from './power.js'
 
+const MAX_LOOP=1000;
+
 export default (mat, thre=1.0e-12)=>{
+    if( (mat instanceof Matrix)===false ) throw new Error('!!! linearAlgebra.eign.power argment shoud be Matrix !!! '+typeof(mat));
+    if( mat.colSize!==mat.rowSize ) throw new Error('!!! linearAlgebra.eign.power Matrix should be Square !!! '+mat.colSize+' '+mat.rowSize);
     const eignVal=[];
     const eignVec=[];
-    let A=new Matrix(mat);
     while( eignVal.length!=mat.colSize ){
-	const [ val, vec ] = power(A, thre);
-	const X=new Matrix(mat.colSize, mat.rowSize);
-	for( let i=0; i<mat.colSize; i++ ){
-	    for( let j=0; j<mat.colSize; j++ ){
-		X[i][j]=mul(vec[i], vec[j]);
-	    }
+	let v0=(new Vector(Array(mat.colSize).fill(1))).unitVector();
+	eignVec.forEach(vec=> v0=sub(v0, mul(v0.mul(vec),vec)));
+	let v1=mul(mat, v0);	
+	let lambda=mul(v1, v0);
+	console.log(lambda);
+	console.log('inital vec', v1);
+	let counter=0;
+	while( abs(mul(v1,v1)-mul(lambda,lambda))>thre ){
+            counter++;
+            v0=v1.unitVector();
+	    eignVec.forEach(vec=> v0=sub(v0, mul(v0.mul(vec),vec)));
+            v1=mul(mat, v0);
+            lambda=mul(v1, v0);
+            if( counter>MAX_LOOP ) throw new Error('!!! linearAlgebra.eign.power loop over !!!');
 	}
-//	console.log(val, vec);
-	eignVal.push(val);
-	eignVec.push(vec);
-	A=sub(A, mul(val, X));
+	eignVal.push(lambda);
+	eignVec.push(v1.unitVector());
     }
+    console.log(eignVal);
     return [ eignVal, eignVec ];
 }

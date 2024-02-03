@@ -1,12 +1,13 @@
 const mat=new Matrix([
-    [ 3, 1 ],
-    [ 2, 2 ]
+    [ 1, 2 ],
+    [ 2, 4 ]
 ]);
 
 const [ vals, vecs ]= linearAlgebra.eign.powerAll(mat);
 
 for( let i=0; i<vals.length; i++ ){
-    output.log(`Eign Value[{i}] =`, vals[i]);
-    output.log(`Eign Vector[{i}] =`, vecs[i]);
-    output.log(vecs[i]*mat*vecs[i]);
+    output.math(`\\lambda =`, vals[i]);
+    output.math(`v =`, vecs[i]);
+    output.math('A*v =', mat*vecs[i]);
+    output.math('\\lambda*v =', vals[i]*vecs[i]);
 }

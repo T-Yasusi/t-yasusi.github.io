@@ -19,8 +19,8 @@ export default {
     frame: frame,
     eign: {
 	power: power,
-	powerAll: powerAll,
-	householderQR: householderQR,
+//	powerAll: powerAll,
+//	householderQR: householderQR,
     },
     QR: {
 	gramSchmidt: gramSchmidt,

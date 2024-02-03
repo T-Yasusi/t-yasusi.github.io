@@ -45,6 +45,6 @@ export default (mat)=>{
 	    U[j][i]=0;
 	}
     }
-    L=mul(P, L);
+//    L=mul(P, L);
     return [ L, U, P ];
 }

@@ -8,7 +8,6 @@ loadModule('./modules/svg.js');
 window.addEventListener('DOMContentLoaded', ()=>{
     console.log('===== js/js-test.js DOMCContentLoaded START =====');
     aceUtil.set('editor', 'ace/mode/javascript', 'ace/theme/monokai');
-    aceUtil.setValue('output.log("Hello World!")')
     
     const codeSelect=document.getElementById('code-select');
     document.getElementById('run').addEventListener('click', ()=> run());
@@ -37,9 +36,10 @@ function clearResult(){
 
 function run(){
     const { code }=Babel.transform(aceUtil.getValue(), { presets: ['env'], plugins: ['operator_overload'] });
-//    console.log('Transpile Code', code);
-    const f=Function(code);
+    //    console.log('Transpile Code', code);
 //    const f=Function(aceUtil.getValue());
+    const f=Function(code);
+
     if( document.getElementById('auto-clear').checked ) clearResult();
     f();
 }

@@ -41,6 +41,8 @@ class Vector extends Array{
     }
     
     sub(vec){
+	console.log('check', vec);
+	console.log((vec instanceof Vector)===false);
 	if( (vec instanceof Vector)===false ) throw new Error('!!! vec.sub invalid argment !!! '+typeof(vec));
 	if( this.size!==vec.size )  throw new Error('!!! vec.sub should be same size !!! '+this.size+' '+vec.size);
 	const result =new Vector(this.map((a, i)=> sub(a, vec[i])));

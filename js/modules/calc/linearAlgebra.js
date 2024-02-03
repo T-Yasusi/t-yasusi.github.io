@@ -6,6 +6,7 @@ import power from './linearAlgebra/eign/power.js'
 // import powerAll from './linearAlgebra/eign/powerAll.js'
 // import householderQR from './linearAlgebra/eign/householderQR.js'
 import frameBastow from './linearAlgebra/eign/frameBastow.js'
+import vector from './linearAlgebra/eign/vector.js'
 
 import rightLooking from './linearAlgebra/LU/rightLooking.js'
 import leftLooking from './linearAlgebra/LU/leftLooking.js'
@@ -21,6 +22,7 @@ export default {
     eign: {
 	power: power,
 	frameBastow: frameBastow,
+	vector: vector,
 //	powerAll: powerAll,
 //	householderQR: householderQR,
     },

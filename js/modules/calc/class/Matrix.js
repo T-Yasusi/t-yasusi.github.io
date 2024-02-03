@@ -28,7 +28,7 @@ class Matrix extends Array{
     get rowSize(){ return this[0].length; }
     get colSize(){ return this.length; }
 
-    rowVec(i){ return new Vector(this(i)); }
+    rowVec(i){ return new Vector(this[i]); }
     rowVector(i){ return this.rowVec(i); }
     colVec(i){ return new Vector(this.colSize).map((a, k)=> this[k][i]); }
     colVector(i){ return this.colVec(i); }

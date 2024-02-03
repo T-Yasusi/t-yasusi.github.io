@@ -13,12 +13,18 @@ Webページ上でサンプルコードを書き編集できる
 - Complex 複素数
 - Vector ベクトル
 - Matrix 行列
-#### 逆行列 
+
+#### 行列用ユーティリティ
 - linearAlgebra.det $(\bf A)$ 行列式
+
+#### 逆行列 
 - linearAlgebra.reverseBySweep $(\bf A)$ (ガウスジョルダンの消去法)掃き出し法による逆行列
 #### LU分解
+部分ピボット変換こみで下三角行列 $\bf L$ と上三角行列 $\bf U$ に分解する。
+返り値は $[\bf L, \bf U, \bf P]$、 $\bf P$ はピボット変換行列である。
 - linearAlgebra.LU.rightLooking $(\bf A)$ 
 - linearAlgebra.LU.leftLooking $(\bf A)$
+- linearAlgebra.LU.crout $(\bf A)$ クラウト法
 
 #### QR分解
 - linearAlgebra.QR.gramSchmidt $(\bf A)$ グラムシュミット法

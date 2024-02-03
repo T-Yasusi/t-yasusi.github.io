@@ -27,6 +27,8 @@ import Complex from './calc/class/Complex.js';
 import Vector from './calc/class/Vector.js';
 import Matrix from './calc/class/Matrix.js';
 
+import util from './calc/util.js';
+
 export {add, sub, mul, div, // 四則演算
 	sqrt, pow, factorial, exp, sin, cos, tan, sinh, cosh, tanh, // 初等関数
 	specialFunc, 
@@ -35,4 +37,7 @@ export {add, sub, mul, div, // 四則演算
 	linearAlgebra,
 	solver, 
 	Vector, Matrix, // ベクトルクラス、行列クラス
+	
+	util,
        };
+

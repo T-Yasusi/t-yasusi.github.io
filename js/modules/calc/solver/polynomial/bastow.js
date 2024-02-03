@@ -8,6 +8,7 @@ import sqrt from '../../sqrt.js'
 const MAX_LOOP=1000;
 
 export default (coffs, thre=1.0e-10)=>{
+    console.log('coffs[0]', coffs);
     const result=[];
     while( coffs.length>3 ){
 	const [new_coffs, ans ]=step(coffs, thre);
@@ -20,8 +21,8 @@ export default (coffs, thre=1.0e-10)=>{
     }
     else if( coffs.length===3 ){
 	const D=sqrt(sub(mul(coffs[1], coffs[1]), mul(4, coffs[2], coffs[0])));
+	console.log(D);
 	result.push(div(sub(mul(-1, coffs[1]), D), mul(2, coffs[0])), div(add(mul(-1, coffs[1]), D), mul(2, coffs[0])));
-
     }
 //    console.log(result);
     return result;
@@ -54,6 +55,7 @@ function step(coffs, thre){
 	p=add(p, dp);
 	q=add(q, dq);
 
+	if( counter%50===0 ) console.log('bastow.step', coffs, dp, dq);
 	// b[1]=coffs[1]-p;
 	// for( let i=2; i<coffs.length; i++ ) b[i]=coffs[i]-p*b[i-1]-q*b[i-2];	
 	b[1]=sub(coffs[1], p);
@@ -64,7 +66,7 @@ function step(coffs, thre){
 	c[1]=sub(b[1], p);
 	for( let i=2; i<coffs.length; i++ ) c[i]=sub(b[i], mul(p, c[i-1]), mul(q, c[i-2]));
 
-	if( counter>MAX_LOOP ) throw new Error('!!! solver.bastow loop over '+MAX_LOOP+' !!!');
+	if( counter>MAX_LOOP ) throw new Error('!!! solver.bastow loop over '+MAX_LOOP+' dp='+abs(dp)+' dq='+abs(dq)+' !!!');
 	if( abs(dp)<thre && abs(dq)<thre ){
 	    // console.log(counter, dp, dq);
 	    break;
@@ -75,7 +77,7 @@ function step(coffs, thre){
     
     coffs=[];
     for( let i=0; i<b.length-2; i++ ) coffs.push(b[i]);
-    // console.log(ans, coffs);
+    console.log(ans, coffs);
     
     return [ coffs, ans ];
 }

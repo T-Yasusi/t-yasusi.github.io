@@ -26,9 +26,13 @@ Webページ上でサンプルコードを書き編集できる
 - linearAlgebra.LU.leftLooking $(\bf A)$
 - linearAlgebra.LU.crout $(\bf A)$ クラウト法
 
-#### QR分解
-- linearAlgebra.QR.gramSchmidt $(\bf A)$ グラムシュミット法
-- linearAlgebra.QR.householder $(\bf A)$ ハウスホルダー法
+#### 対角化
+- linearAlgebra.eign.frameBastow $(\bf A)$ 返り値は $[ [\lambda ...], {\bf P} ]$、固有値方程式はフレーム法で作り、ベアストウ法で解く
+- linearAlgebra.eign.power $(\bf A)$ べき乗法、返り値は $[ \lambda, {\bf v} ]$、最大固有値と固有ベクトルの組み合わせ
+
+<!-- #### QR分解 -->
+<!-- - linearAlgebra.QR.gramSchmidt $(\bf A)$ グラムシュミット法 -->
+<!-- - linearAlgebra.QR.householder $(\bf A)$ ハウスホルダー法 -->
 
 #### 四則演算
 ベクトル、行列、複素数などは対応済み

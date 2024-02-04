@@ -8,7 +8,6 @@ import sqrt from '../../sqrt.js'
 const MAX_LOOP=1000;
 
 export default (coffs, thre=1.0e-10)=>{
-    console.log('coffs[0]', coffs);
     const result=[];
     while( coffs.length>3 ){
 	const [new_coffs, ans ]=step(coffs, thre);
@@ -21,10 +20,8 @@ export default (coffs, thre=1.0e-10)=>{
     }
     else if( coffs.length===3 ){
 	const D=sqrt(sub(mul(coffs[1], coffs[1]), mul(4, coffs[2], coffs[0])));
-	console.log(D);
 	result.push(div(sub(mul(-1, coffs[1]), D), mul(2, coffs[0])), div(add(mul(-1, coffs[1]), D), mul(2, coffs[0])));
     }
-//    console.log(result);
     return result;
 }
 
@@ -36,7 +33,7 @@ function step(coffs, thre){
     for( let i=2; i<coffs.length; i++ ) b.push(sub(coffs[i], mul(p, b[i-1]), mul(q, b[i-2])));
     // const b=[ 1, coffs[1]-p ];
     // for( let i=2; i<coffs.length; i++ ) b.push(coffs[i]-p*b[i-1]-q*b[i-2]);
-
+    
     const c=[ 1, sub(b[1], p) ];
     for( let i=2; i<coffs.length; i++ ) c.push(sub(b[i], mul(p, c[i-1]), mul(q, c[i-2])));
     // const c=[ 1, b[1]-p ];
@@ -45,39 +42,41 @@ function step(coffs, thre){
     let counter=0;
     while( true ){
 	counter++;
+	// *** Calc code using raw operator 
 	// const R=c[c.length-3]*c[c.length-3]-c[c.length-4]*(c[c.length-2]-b[b.length-2]);
 	// const dp=(b[b.length-2]*c[c.length-3]-b[b.length-1]*c[c.length-4])/R;
 	// const dq=(b[b.length-1]*c[c.length-3]-b[b.length-2]*(c[c.length-2]-b[b.length-2]))/R;
 	const R=sub(mul(c[c.length-3], c[c.length-3]), mul(c[c.length-4], sub(c[c.length-2], b[b.length-2])));
 	const dp=div(sub(mul(b[b.length-2], c[c.length-3]), mul(b[b.length-1], c[c.length-4])), R);
 	const dq=div(sub(mul(b[b.length-1], c[c.length-3]), mul(b[b.length-2], sub(c[c.length-2], b[b.length-2]))), R);
+
+	// *** For iteration check 
+	// if( counter%50===0 ) console.log('bastow.step', coffs, dp, dq);
 	
 	p=add(p, dp);
 	q=add(q, dq);
 
-	if( counter%50===0 ) console.log('bastow.step', coffs, dp, dq);
+	// *** Calc code using raw operator 
 	// b[1]=coffs[1]-p;
 	// for( let i=2; i<coffs.length; i++ ) b[i]=coffs[i]-p*b[i-1]-q*b[i-2];	
 	b[1]=sub(coffs[1], p);
 	for( let i=2; i<coffs.length; i++ ) b[i]=sub(coffs[i], mul(p, b[i-1]), mul(q, b[i-2]));
-	
+
+	// *** Calc code using raw operator 
 	// c[1]=b[1]-p;
 	// for( let i=2; i<coffs.length; i++ ) c[i]=b[i]-p*c[i-1]-q*c[i-2];
 	c[1]=sub(b[1], p);
 	for( let i=2; i<coffs.length; i++ ) c[i]=sub(b[i], mul(p, c[i-1]), mul(q, c[i-2]));
 
 	if( counter>MAX_LOOP ) throw new Error('!!! solver.bastow loop over '+MAX_LOOP+' dp='+abs(dp)+' dq='+abs(dq)+' !!!');
-	if( abs(dp)<thre && abs(dq)<thre ){
-	    // console.log(counter, dp, dq);
-	    break;
-	}
+	if( abs(dp)<thre && abs(dq)<thre ) break;
     }
     const D=sqrt(sub(mul(p, p), mul(4, q)));
     const ans=[ div(sub(mul(-1, p), D), 2), div(add(mul(-1, p), D), 2) ]; 
     
     coffs=[];
     for( let i=0; i<b.length-2; i++ ) coffs.push(b[i]);
-    console.log(ans, coffs);
+    //    console.log(ans, coffs); For Debug
     
     return [ coffs, ans ];
 }

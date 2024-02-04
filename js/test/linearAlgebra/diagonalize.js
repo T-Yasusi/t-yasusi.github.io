@@ -23,11 +23,13 @@ output.math('\\lambda=', eigns3.map(a=> util.toEffNum(a)));
 
 const eigns4=linearAlgebra.eign.frameBastow(A5);
 output.math('\\lambda=', eigns4.map(a=> util.toEffNum(a)));
-outEign(A2);
+
+outEign(A4);
 
 function outEign(A){
     const eign=linearAlgebra.eign.frameBastow(A);
     for( let i=0; i< eign.length; i++ ){
+
 	const vec=linearAlgebra.eign.vector(A, eign[i]);
 	output.log('>>>>>', i);
 	output.math('\\lambda=', eign[i]);

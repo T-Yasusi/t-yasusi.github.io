@@ -1,4 +1,3 @@
-import basicOpRow from './basicOpRow.js'
 import abs from '../abs.js'
 import div from '../div.js'
 import minus from '../minus.js'

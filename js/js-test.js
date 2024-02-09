@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
     // loadModuleを待つため
     //    codeSelect.dispatchEvent(new Event('change'));
-    setTimeout(()=>{ codeSelect.dispatchEvent(new Event('change')); }, 1000);
+    setTimeout(()=>{ codeSelect.dispatchEvent(new Event('change')); }, 2000);
     console.log('===== js/js-test.js DOMCContentLoaded FINISH =====');
 });
 

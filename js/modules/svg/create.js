@@ -8,12 +8,12 @@ import SVGText from './class/SVGText.js'
 export default {
     rect: (parent, x0, y0, x1, y1)=>{
 	const rect=createSVG('rect');
-//        console.log(parent.x0+x0, parent.y0+y0, parent.width*(x1-x0), parent.height*(y1+y0));
+        console.log(parent.x0+parent.width*x0, parent.y0+parent.height*y0, parent.width*(x1-x0), parent.height*(y1-y0));
 	const obj=new SVGRect(parent, rect);
-	obj.setAttribute({'x': parent.x0+x0,
-			  'y': parent.y0+y0,
-			  'width': parent.width*(x1-x0),
-			  'height': parent.height*(y1-y0) });
+	obj.setAttribute({'x': parent.x0+parent.width*x0,
+			  'y': parent.y0+parent.height*y0,
+			  'width': Math.abs(parent.width*(x1-x0)),
+			  'height': Math.abs(parent.height*(y1-y0)) });
 	parent._elem.appendChild(rect);
         parent._elements.push(obj);
         return obj;

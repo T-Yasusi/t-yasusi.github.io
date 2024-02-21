@@ -14,7 +14,6 @@ const output={
 	div.innerHTML+='\\[ ';
 	args.forEach(a=>{ div.innerHTML+=typeof a.toTex ==='function' ? a.toTex(): a });
 	div.innerHTML+=' \\]';
-//	console.log(div);
 	elem.appendChild(div);
 	restartMathJax();
     }    

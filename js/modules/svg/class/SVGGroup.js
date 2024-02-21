@@ -1,6 +1,7 @@
 import createSVG from '../createSVG.js'
 import create from '../create.js'
 import Graph from './Graph.js'
+import Histogram from './Histogram.js'
 import SVGObject from './SVGObject.js'
 
 class SVGGroup {
@@ -23,7 +24,8 @@ class SVGGroup {
     get width(){ return this._width; }
     get height(){ return this._height; }
 
-    makeGraph(){ return new Graph(this, this._elem); }
+    makeGraph(){ return new Graph(this); }
+    makeHist(xmin, xmax, N){ return new Histogram(this, xmin, xmax, N); }
 
     makeRect(x0, y0, x1, y1){ return create.rect(this, x0, y0, x1, y1); }
     makePath(x_points, y_points){ return create.path(this, x_points, y_points); }

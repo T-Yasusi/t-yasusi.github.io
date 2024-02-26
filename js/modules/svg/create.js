@@ -1,5 +1,4 @@
 import createSVG from './createSVG.js'
-//import SVGObject from './class/SVGObject.js'
 import SVGRect from './class/SVGRect.js'
 import SVGPath from './class/SVGPath.js'
 import SVGLine from './class/SVGLine.js'
@@ -15,7 +14,7 @@ export default {
 			  'width': Math.abs(parent.width*(x1-x0)),
 			  'height': Math.abs(parent.height*(y1-y0)) });
 	parent._elem.appendChild(rect);
-        parent._elements.push(obj);
+//        parent._elements.push(obj);
         return obj;
     },
     text: (parent, x, y, content)=>{
@@ -24,7 +23,7 @@ export default {
 	obj.setAttribute({'x': x, 'y': y });
 	obj.text=content;
 	parent._elem.appendChild(text);
-	parent._elements.push(obj);
+//	parent._elements.push(obj);
 	return obj;
     },
     path: (parent, x_points, y_points)=>{
@@ -39,7 +38,7 @@ export default {
 			   'stroke': 'black',
 			   'd': attrBody });
 	parent._elem.appendChild(path);
-	parent._elements.push(obj);
+//	parent._elements.push(obj);
 	return obj;
     },
     line: (parent, x1, y1, x2, y2)=>{
@@ -50,7 +49,7 @@ export default {
 			   'x2': parent.x0+x2,
 			   'y2': parent.y0+y2 });
 	parent._elem.appendChild(line);
-	parent._elements.push(obj);
+//	parent._elements.push(obj);
 	return obj;
     }
 }

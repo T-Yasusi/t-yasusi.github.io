@@ -30,6 +30,7 @@ export default class Graph{
 	line.setAttribute({'stroke-width': 2, 'stroke': 'red'});
 	return line;
     }
+    
     drawFunc(func, xmin=0, xmax=1, n=100){
 	this._xmin=xmin;
 	this._xmax=xmax;
@@ -52,6 +53,7 @@ export default class Graph{
 	this.drawLabelY();
 	return path;
     }
+    
     drawLabelX(N=5){
 	const log10=Math.floor(Math.log10(this.xmax-this.xmin));
 	const base =Math.pow(10, log10)*0.1;

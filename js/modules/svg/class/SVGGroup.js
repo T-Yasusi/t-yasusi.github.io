@@ -14,9 +14,8 @@ class SVGGroup {
 	this._y0    = y0!=null ? y0 : parent.y0;
 	this._width = width!=null ? width : parent.width;
 	this._height= height!=null ? height : parent.height;
-	
+
 	this._groups=[];
-	this._elements=[];
     }
 
     get x0(){ return this._x0; }
@@ -31,12 +30,14 @@ class SVGGroup {
     makePath(x_points, y_points){ return create.path(this, x_points, y_points); }
     makeLine(x1, y1, x2, y2){ return create.line(this, x1, y1, x2, y2); }
     makeText(x, y, text){ return create.text(this, x, y, text); }
-    
+
     makeGroup(){
 	const group=new SVGGroup(this, createSVG('g'));
 	this._groups.push(group);
 	return group;
     }
+
+    clearAll(){ while(this._elem.firstChild) this._parent.removeChild(this._elem.firstChild); }
 }
 
 export default SVGGroup;

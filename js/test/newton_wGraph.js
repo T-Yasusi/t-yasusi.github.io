@@ -44,4 +44,3 @@ const intervalID=setInterval(()=>{
 output.log('x =', x1, '  calc =', Math.sqrt(n));
 
 modalWrapper.addEventListener('click', ()=>{ modalWrapper.style.display='none'; });
-//modalWrapper.style.display='none'; // erase display

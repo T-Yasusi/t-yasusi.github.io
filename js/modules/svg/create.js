@@ -3,6 +3,7 @@ import SVGRect from './class/SVGRect.js'
 import SVGPath from './class/SVGPath.js'
 import SVGLine from './class/SVGLine.js'
 import SVGText from './class/SVGText.js'
+import SVGEllipse from './class/SVGElipse.js'
 
 export default {
     rect: (parent, x0, y0, x1, y1)=>{
@@ -13,7 +14,6 @@ export default {
 			  'y': parent.y0+parent.height*y0,
 			  'width': Math.abs(parent.width*(x1-x0)),
 			  'height': Math.abs(parent.height*(y1-y0)) });
-	parent._elem.appendChild(rect);
         return obj;
     },
     text: (parent, x, y, content)=>{
@@ -21,7 +21,6 @@ export default {
 	const obj=new SVGText(parent, text);
 	obj.setAttribute({'x': x, 'y': y });
 	obj.text=content;
-	parent._elem.appendChild(text);
 	return obj;
     },
     path: (parent, x_points, y_points)=>{
@@ -35,7 +34,6 @@ export default {
 			   'stroke-width': 1,
 			   'stroke': 'black',
 			   'd': attrBody });
-	parent._elem.appendChild(path);
 	return obj;
     },
     line: (parent, x1, y1, x2, y2)=>{
@@ -45,7 +43,21 @@ export default {
 			   'y1': parent.y0+y1,
 			   'x2': parent.x0+x2,
 			   'y2': parent.y0+y2 });
-	parent._elem.appendChild(line);
+	return obj;
+    },
+    circle: (parent, x, y, r)=>{
+	const circle=createSVG('circle');
+	const obj=new SVGCircle(parent, circle);
+	obj.setAttribute({ 'cx': x,
+			   'cy': y,
+			   'r': r });
+	return obj;
+    },
+    ellipse: (parent, x, y, rx, ry)=>{
+	const eclipse=createSVG('ellipse');
+	const obj=new SVGEllipse(parent, eclipse);
+	obj.setAttribute({ 'cx': x, 'cy':y, 'rx': rx, 'ry': ry });
+
 	return obj;
     }
 }

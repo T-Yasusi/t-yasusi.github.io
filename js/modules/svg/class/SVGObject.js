@@ -1,7 +1,8 @@
 export default class {
     constructor(parent, elem){
-	this._parent;
+	this._parent=parent;
 	this._elem=elem;
+	this._parent._elem.appendChild(elem);
     }
     
     setAttribute(params){

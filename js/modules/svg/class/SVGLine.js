@@ -1,7 +1,6 @@
 import SVGObject from './SVGObject.js'
 
 export default class extends SVGObject{
-
     get svgX1(){ return this._elem.getAttribute('x1'); }
     get svgY1(){ return this._elem.getAttribute('y1'); }
     get svgX2(){ return this._elem.getAttribute('x2'); }

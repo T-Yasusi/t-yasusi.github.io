@@ -1,7 +1,6 @@
 import SVGObject from './SVGObject.js'
 
 export default class extends SVGObject{
-
     set text(content){ this._elem.innerHTML=content; }
     get text(){ this._elem.innerHTML; }
     

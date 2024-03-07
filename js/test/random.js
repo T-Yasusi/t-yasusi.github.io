@@ -13,7 +13,7 @@ const intervalID=setInterval(()=>{
     for( let i=0; i<N; i++ ){
 	hist.fill(Math.random());
     }
-    hist.draw();
+    hist.draw_wErrBar();
 }, 1000);
     
 modalWrapper.addEventListener('click', ()=>{

@@ -30,7 +30,9 @@ class SVGGroup {
     makePath(x_points, y_points){ return create.path(this, x_points, y_points); }
     makeLine(x1, y1, x2, y2){ return create.line(this, x1, y1, x2, y2); }
     makeText(x, y, text){ return create.text(this, x, y, text); }
-
+    makeCircle(x, y, r){ return create.eclipse(this, x, y, r); }
+    makeEllipse(x, y, rx, ry){ return create.ellipse(this, x, y, rx, ry) }
+    
     makeGroup(){
 	const group=new SVGGroup(this, createSVG('g'));
 	this._groups.push(group);

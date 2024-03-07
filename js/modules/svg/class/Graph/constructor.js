@@ -8,6 +8,8 @@ export default (self, group)=>{
     self._display=new SVGGroup(group, createSVG('g'), x0+0.1*width, y0+0.1*height, 0.8*width, 0.8*height);
     self._axisX=new SVGGroup(group, createSVG('g'), x0+0.1*width, y0+0.9*height, 0.8*width, 0.1*height);
     self._axisY=new SVGGroup(group, createSVG('g'), x0+0.1*width, y0+0.1*height, 0.1*width, 0.8*height);
+    console.log(x0, y0, width, height);
+    
     self._frame=self._group.makeRect().setAttribute({
         'x': x0+0.1*width,
         'y': y0+0.1*height,

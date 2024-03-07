@@ -1,5 +1,5 @@
 export default async (filepath)=>{
-    return await import(filepath).then(module=>{
+    return await import(filepath, { cache: "no-store" }).then(module=>{
         for( const [key, val] of Object.entries(module) ){
             if( window[key]==null ){
                 window[key]=val;

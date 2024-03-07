@@ -37,7 +37,7 @@ class SVGGroup {
 	return group;
     }
 
-    clearAll(){ while(this._elem.firstChild) this._parent.removeChild(this._elem.firstChild); }
+    clearAll(){ while(this._elem.firstChild) this._elem.removeChild(this._elem.firstChild); }
 }
 
 export default SVGGroup;

@@ -25,7 +25,15 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
     // loadModuleを待つため
     //    codeSelect.dispatchEvent(new Event('change'));
-    setTimeout(()=>{ codeSelect.dispatchEvent(new Event('change')); }, 2000);
+    setTimeout(()=>{
+	const searchParam=new URLSearchParams(location.search);
+	if( searchParam.has('src') ){
+	    const elem=[...codeSelect.children].find(e=> e.value===searchParam.get('src'));
+	    elem.selected=true;
+	}	
+	if( searchParam.has('run') ) document.getElementById('auto-run').checked=true;
+	codeSelect.dispatchEvent(new Event('change'));
+    }, 2000);
     console.log('===== js/js-test.js DOMCContentLoaded FINISH =====');
 });
 
@@ -36,7 +44,7 @@ function clearResult(){
 
 function run(){
     const { code }=Babel.transform(aceUtil.getValue(), { presets: ['env'], plugins: ['operator_overload'] });
-    //    console.log('Transpile Code', code);
+//    console.log('Transpile Code', code);
 //    const f=Function(aceUtil.getValue());
     const f=Function(code);
 

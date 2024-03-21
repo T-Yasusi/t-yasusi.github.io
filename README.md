@@ -15,7 +15,7 @@ Webページ上でサンプルコードを書き編集できる
 行列式、逆行列etcなどのメソッドは正方行列とは限らないので行列クラスのメソッドにはしない。
 (行列クラスを継承させた正方行列クラスも要素数で縛れないので外に定義する)
 - Complex 複素数
-```ts
+```ts:Complex.js
 Complex{
    constructor(real :number, imag :number);
    

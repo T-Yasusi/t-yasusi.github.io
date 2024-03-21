@@ -11,6 +11,29 @@ Webページ上でサンプルコードを書き編集できる
 #### クラス
 `js/module/calc/class/`以下に定義されている。
 - Complex 複素数
+```ts
+Complex{
+   constructor(real :number, imag :number);
+   
+   re() : number // 実部の別名
+   im() : number // 虚部の別名
+   abs2() : number // 絶対値の二乗
+   abs() : number // 絶対値
+   arg() : number // 偏角
+   minus() : Complex // -z
+   reverse(): Complex // 逆数
+   conj() : Complex // 複素共役
+
+   add(a : number | Complex) : Complex // 足し算
+   sub(a : number | Complex) : Complex // 引き算
+   mul(a : number | Complex) : Complex // 掛け算
+   div(a : number | Complex) : Complex // 割り算
+
+   toString() : string 
+   toTex() : string // MathJax用
+   toEffNum(n : number) : string // 浮動点少数以下の定義付き 
+}
+```
 - Vector ベクトル
 - Matrix 行列
 

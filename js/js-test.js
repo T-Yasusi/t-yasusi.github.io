@@ -9,9 +9,10 @@ window.addEventListener('DOMContentLoaded', ()=>{
     console.log('===== js/js-test.js DOMCContentLoaded START =====');
     aceUtil.set('editor', 'ace/mode/javascript', 'ace/theme/monokai');
     
+    document.getElementById('run').addEventListener('click', run);
+    document.getElementById('clear').addEventListener('click', clearResult);
+    document.getElementById('result-only').addEventListener('click', resultOnly);
     const codeSelect=document.getElementById('code-select');
-    document.getElementById('run').addEventListener('click', ()=> run());
-    document.getElementById('clear').addEventListener('click', ()=> clearResult());
     codeSelect.addEventListener('change', ()=>{
         const filePath=[...codeSelect.children].find(e=> e.selected).value;
         if( filePath.length>0 ){
@@ -36,6 +37,20 @@ window.addEventListener('DOMContentLoaded', ()=>{
     }, 2000);
     console.log('===== js/js-test.js DOMCContentLoaded FINISH =====');
 });
+
+function resultOnly(){
+    const modalWrapper=document.getElementById('modal-wrapper1');
+    const modal=document.getElementById('modal1');
+    modalWrapper.style.display='block';    
+    modal.style.width=modalWrapper.clientWidth+'px';
+    modal.style.height=modalWrapper.clientHeight+'px';
+    modal.innerHTML=document.getElementById('result').innerHTML;
+
+    modalWrapper.addEventListener('click', ()=>{
+	modal.innerHTML='';
+	modalWrapper.style.display='none';
+    });
+}
 
 function clearResult(){
     const elem=document.getElementById('result');

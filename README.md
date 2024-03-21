@@ -10,6 +10,10 @@ Webページ上でサンプルコードを書き編集できる
 メイン機能、`js/module/calc`以下のディレクトリにある
 #### クラス
 `js/module/calc/class/`以下に定義されている。
+ベクトル・行列(Vector、Matrix)クラスに割り算は定義していない、
+逆数の掛け算で対応して欲しい。
+行列式、逆行列etcなどのメソッドは正方行列とは限らないので行列クラスのメソッドにはしない。
+(行列クラスを継承させた正方行列クラスも要素数で縛れないので外に定義する)
 - Complex 複素数
 ```ts
 Complex{
@@ -35,8 +39,52 @@ Complex{
 }
 ```
 - Vector ベクトル
+```ts:Vector.js
+class Vector exntends Array{
+   constructor(arr : Array);
+
+   get size() : number;
+   copy() : Vector;
+   trans() : Vector; // 複素共役
+   abs() : number; // ノルム(絶対値)
+   unitVector() : Vector; // 単位ベクトル
+
+   add(vec : Vector);
+   sub(vec : Vector);
+   mul(vec : number | Complex | Vector | Matrix );
+
+   toString();
+   toTex(); // MathJaxで使う用
+}
+```
 - Matrix 行列
 
+```ts:Matrix.ts
+class Matrix extends Array{
+    constructor(arr : Array);
+
+    get rowSize() : number; // 列(縦)のサイズ
+    get colSize() : number; // 行(横)のサイズ
+    
+    rowVector(i : number) : Vector; 
+    rowVec(i : number) : Vector;
+    colVector(i : number) : Vector;
+    colVector(i : number) : Vector;
+    setRowVector(i : number, vec : Vector);
+    setRowVec(i : number, vec : Vector);
+    setColVector(i : number, vec : Vector);
+    setColVec(i : number, vec : Vector);
+
+    trans() : Matrix; \\ 転地行列
+
+    add(mat : Matrix) : Matrix;
+    sub(mat : Matrix) : Matrix;
+    mul(mat : number | Vector | Matrix) : Matrix;
+
+    toString() : string;
+    toTex() : string;
+}
+```
 #### 行列用ユーティリティ
 - linearAlgebra.det $(\bf A)$ 行列式
 
@@ -72,9 +120,9 @@ Complex{
 - sin $(x)$ 正弦関数
 - cos $(x)$ 余弦関数
 - tan $(x)$ 正接関数
-- sinh $(x)$
-- cosh $(x)$
-- tanh $(x)$
+- sinh $(x)$ 双曲線正弦関数
+- cosh $(x)$ 双曲線余弦関数
+- tanh $(x)$ 双曲線正接関数
 
 #### 数値微分
 - diff.forward $(f(x), x_0, \Delta x=1.0^{-8})$ 前方差分法

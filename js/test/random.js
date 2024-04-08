@@ -11,7 +11,8 @@ const hist=svgTop.makeHist(0, 1, 100);
 
 const intervalID=setInterval(()=>{
     for( let i=0; i<N; i++ ){
-	hist.fill(Math.random());
+	hist.fill(2.0*(Math.random()-0.5));
+//	hist.fill(raondom.getVal(-1, 1));
     }
     hist.draw_wErrBar();
 }, 1000);

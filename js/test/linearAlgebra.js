@@ -1,7 +1,7 @@
 const mat = new Matrix(
-    [ [  1,  1, -1 ],
+    [  1,  1, -1 ],
       [ -2, -1, 1 ],
-      [ -1, -2, 1 ] ] );
+      [ -1, -2, 1 ]  );
 
 output.log('Matrix');
 output.log(mat);

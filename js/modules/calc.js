@@ -29,15 +29,19 @@ import Matrix from './calc/class/Matrix.js';
 
 import util from './calc/util.js';
 
-export {add, sub, mul, div, // 四則演算
-	sqrt, pow, factorial, exp, sin, cos, tan, sinh, cosh, tanh, // 初等関数
-	specialFunc, 
-	diff, integral, // 微分、積分
-	Complex, // 複素数クラス
-	linearAlgebra,
-	solver, 
-	Vector, Matrix, // ベクトルクラス、行列クラス
-	
-	util,
-       };
+import random from './calc/random.js';
+
+export {
+    add, sub, mul, div, // 四則演算
+    sqrt, pow, factorial, exp, sin, cos, tan, sinh, cosh, tanh, // 初等関数
+    specialFunc, 
+    diff, integral, // 微分、積分
+    Complex, // 複素数クラス
+    linearAlgebra,
+    solver, 
+    Vector, Matrix, // ベクトルクラス、行列クラス
+    
+    util,
+    random, // 乱数名前空間
+};
 

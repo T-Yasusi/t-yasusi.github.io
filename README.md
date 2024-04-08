@@ -69,7 +69,7 @@ class Matrix extends Array{
     rowVector(i : number) : Vector; 
     rowVec(i : number) : Vector;
     colVector(i : number) : Vector;
-    colVector(i : number) : Vector;
+    colVec(i : number) : Vector;
     setRowVector(i : number, vec : Vector);
     setRowVec(i : number, vec : Vector);
     setColVector(i : number, vec : Vector);

@@ -1,7 +1,7 @@
-const mat=new Matrix( [[ 3, 5, 4, 2 ],
+const mat=new Matrix( [ 3, 5, 4, 2 ],
 		       [ 2, 1, 5, 0 ],
 		       [ 0, 1, 1, 0 ],
-		       [ 3, 3, 3, 3 ] ] );
+		       [ 3, 3, 3, 3 ]  );
 
 output.math('det(A)=', linearAlgebra.det(mat));
 

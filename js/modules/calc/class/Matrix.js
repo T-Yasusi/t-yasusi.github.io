@@ -11,17 +11,21 @@ class Matrix extends Array{
     constructor(...args){
 //	console.log('Matrix.constrcutor args=', args);
 	if( args.length===1 && args[0] instanceof Array && args[0].every(a=> a instanceof Array) ){
-//	    console.log('Matrix.constrcutor AAA');
 	    super();
 	    for( const a of args[0] ) this.push(new Vector(a));
 	}
-	else if( args.length===2 && args.every(a=> typeof(a)==='number' ) ){
+	else if( args.length==2 && args.every(a=> Number.isInteger(a)) ){
 	    super();
 	    for( let i=0; i<args[0]; i++ ) this.push(new Vector(args[1]))
-
 	}
-	else throw new Error('!!! Matrix invaild constructor !!! '+typeof(args));
-//	console.log(this);
+	else if( args.every(a=> a instanceof Array) && args.every(a=> a.every(a2=> typeof(a2)==='number' || a instanceof Complex )) ){
+	    super();
+	    for( const a of args ) this.push(new Vector(a));
+	}
+	else{
+//	    console.log(args);
+	    throw new Error('!!! Matrix invaild constructor !!! '+typeof(args));
+	}
     }
 
     copy(){ return new Matrix(this); }

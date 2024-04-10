@@ -26,11 +26,12 @@ export default class Histogram{
     consoleOut(){ consoleOut(this); }
     
     draw(attr={ fill: 'none', strokeWidth: 1.5, stroke: 'black' }){
-	this.consoleOut();
+//	this.consoleOut();
 	this._display.clearAll();
 
 	for( let i=0; i<this._values.length; i++ ){
-	    const rect=this._display.makeRect(this._bins[i], 1.0-this._values[i]/this.ymax, this._bins[i+1], 1.0);
+	    const rect=this._display.makeRect((this._bins[i]-this._bins[0])/(this._bins[this._values.length]-this._bins[0]), 1.0-this._values[i]/this.ymax,
+					      (this._bins[i+1]-this._bins[0])/(this._bins[this._values.length]-this._bins[0]), 1.0);
 	    rect.setAttribute(attr);
 	}
 	this.drawLabelX();
@@ -40,7 +41,7 @@ export default class Histogram{
     draw_wErrBar(attr={ fill: 'none', strokeWidth: 1.5, stroke: 'black' }){
 	this.draw();
 	for( let i=0; i<this._values.length; i++ ){
-	    const x=this._display.width*0.5*(this._bins[i]+this._bins[i+1]);
+	    const x=this._display.width*0.5*(this._bins[i]+this._bins[i+1]-2*this._bins[0])/(this._bins[this._values.length]-this._bins[0]);
 	    const y=this._values[i];
 	    const err=Math.sqrt(this._values[i]);
 	    const line=this._display.makeLine(x, this._display.height*(1.0-(y+err)/(this.ymax)), x, this._display.height*(1.0-(y-err)/(this.ymax)));

@@ -21,6 +21,7 @@ export default (self, group, xmin, xmax, N)=>{
     for( let i=0; i<N; i++ ){ self._bins.push(xmin+i*dx); }
     self._bins.push(xmin+N*dx);
     self._values=new Array(N).fill(0);
+//    console.log(self._bins);
     
     self._overflow=0;
     self._underflow=0;

@@ -21,7 +21,9 @@ const intervalID=setInterval(()=>{
     const par=[ hist.ymax, GAUSS_MEAN, GAUSS_SIGMA ];
     const gaussian=(x, A, mean, sigma)=>{ return A*exp(-pow(x-mean, 2)/pow(2*sigma, 2)) };
     const fit_result=fit.simplex(hist.array_x, hist.array_y, par, gaussian);
-//    console.log(fit_result);
+// const fit_result2=fit.gradient(hist.array_x, hist.array_y, par, gaussian);
+// const fit_result2=fit.gradient(hist.array_x, hist.array_y, fit_result.parameter, gaussian);
+    console.log(fit_result);
     hist.drawFunc(x=> gaussian(x, ...fit_result.parameter)).setAttribute({ 'stroke-width': 2, 'stroke': 'red' });
 }, 1000);
 

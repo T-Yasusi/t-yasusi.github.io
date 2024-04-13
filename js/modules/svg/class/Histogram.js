@@ -18,12 +18,31 @@ export default class Histogram{
     svgX(x){ return this._display.x0+(this._display.width/(this.xmax-this.xmin))*(x-this.xmin); }
     svgY(y){ return this._display.y0+this._display.height*(1.0-(y-this.ymin)/(this.ymax-this.ymin)); }
 
+    get array_y(){ return this._values; }
+    get array_x(){
+	const result=[];
+	for( let i=0; i<this._values.length; i++ ) result.push(0.5*(this._bins[i]+this._bins[i+1]));
+	return result;
+    }
+    
     drawLabelX(N=5){ drawLabelX(this, N) }
     drawLabelY(N=5){ drawLabelY(this, N) }
 
     get entries(){ return this._overflow+this._underflow+this._values.reduce((sum, a)=> sum+a); }
     fill(val){ fill(this, val); }
     consoleOut(){ consoleOut(this); }
+
+    drawFunc(func, n=1000){
+	const scaleX=1.0/(this._bins[this._values.length]-this._bins[0]);
+	const dx=(this._bins[this._values.length]-this._bins[0])/n;
+	const x_points=[], y_points=[];
+	for( let x=this._bins[0]; x<this._bins[this._values.length]; x+=dx ){
+	    x_points.push(scaleX*(x-this._bins[0]));
+	    y_points.push(func(x)/this.ymax);
+	}
+	const path=this._display.makePath(x_points, y_points);
+	return path;
+    }
     
     draw(attr={ fill: 'none', strokeWidth: 1.5, stroke: 'black' }){
 //	this.consoleOut();

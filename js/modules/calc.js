@@ -30,6 +30,7 @@ import Matrix from './calc/class/Matrix.js';
 import util from './calc/util.js';
 
 import random from './calc/random.js';
+import fit from './calc/fit.js';
 
 export {
     add, sub, mul, div, // 四則演算
@@ -43,5 +44,6 @@ export {
     
     util,
     random, // 乱数名前空間
+    fit,
 };
 

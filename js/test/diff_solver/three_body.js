@@ -1,35 +1,37 @@
-const intervalTime=1000; // 1s
+const intervalTime=100; // 1s
+const dt=10e-6, nStep=100;
 
 const N=3;
-
+const RADIUS1=1.0, RADIUS2=1.05;
 const masses=[ 100, 1, 0.01 ];
-const x=[ new Vector(0, 0, 0), new Vector(1, 0, 0), new Vector(1.05, 0, 0) ];
-const v=[ new Vector(0, 0, 0), new Vector(0, sqrt(masses[0]/x[1].abs2()), 0), new Vector(0, sqrt(masses[0]/x[1].abs())+sqrt(masses[1]/(x[2]-x[1]).abs()), 0) ];
 
+const x=[ new Vector(0, 0, 0), new Vector(RADIUS1, 0, 0), new Vector(RADIUS2, 0, 0) ];
+const v=[ new Vector(0, 0, 0), new Vector(0, 0, sqrt(masses[0]/x[1].abs2())), new Vector(0, 0, sqrt(masses[0]/x[1].abs())+sqrt(masses[1]/(x[2]-x[1]).abs())) ];
 let arg=new Matrix([ ...x, ...v ]);
 let t=0;
+
 const func=(t, arg)=>{
     const result= new Matrix(2*N, 3);
     for( let i=0; i<N; i++ ){
 	result[i]=arg[N+i]; // dx/dt=v
 	for( let j=N; j<2*N; j++ ){
 	    if( i+N===j ) continue;
-	    const a=masses[i]/(arg[i]-arg[j-N]).abs2();
-	    result[j]=result[j]+a*(arg[i]-arg[j-N]).unitVector();
+	    result[j]=result[j]+(masses[i]/(arg[i]-arg[j-N]).abs2())*(arg[i]-arg[j-N]).unitVector();
 	}
     }
     return result;
 }
 
 const [ canvas, modalWrapper ]=setModal();
-const [ renderer, scene, camera, pointLight ]=setThree(canvas);
+const [ renderer, scene, camera, light ]=setThree(canvas);
 
 const intervalID=setInterval(()=>{
-    const result=solver.diff.eular(func, 0, arg, 1.0e-5, 1000);
-    t+=0.01;
+    const result=solver.diff.eular(func, 0, arg, dt, nStep);
+    t+=dt*nStep
     arg=result[result.length-1];
 
     addObject(result, scene);
+//    setCameraPosition();
     
     renderer.render(scene, camera);
 }, intervalTime);
@@ -41,6 +43,9 @@ for( let i=0; i<N; i++ ){
     balls.push(new THREE.Mesh( new THREE.SphereGeometry(radii[i]), new THREE.MeshStandardMaterial({ color: colorName[i] })));
     scene.add(balls[i]);
 }
+balls[0].material.transparent=true;
+balls[0].material.opacity=0.4;
+balls[0].material.side=THREE.DoubleSide;
 
 function addObject(data, scene){
     for( let i=0; i<N; i++ ){
@@ -56,6 +61,12 @@ function addObject(data, scene){
 	balls[i].position.set(...points[points.length-1]);
 	scene.add(line);
     }
+    light.position.set(...data[data.length-1][0]);
+}
+
+function setCameraPosition(){
+    camera.position.set(0.2*balls[1].position[0], 0.2, 0.2*balls[1].position[1]);
+    camera.lookAt(...balls[1].position);
 }
 
 function setModal(){
@@ -80,7 +91,7 @@ function setThree(canvas){
 
     const scene=new THREE.Scene();
     const camera=new THREE.PerspectiveCamera(45, canvas.clientWidth/canvas.clientHeight);
-    camera.position.set(0, 0, 3.5);
+    camera.position.set(-2.0, 1.0, 0);
     camera.lookAt(0, 0, 0);
 
     const light = new THREE.PointLight(0xFFFFFF);

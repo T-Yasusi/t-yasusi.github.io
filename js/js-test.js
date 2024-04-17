@@ -4,6 +4,7 @@ import loadModule from './loadModule.js';
 loadModule('./output.js');
 loadModule('./modules/calc.js');
 loadModule('./modules/svg.js');
+loadModule('./modules/three.js');
 
 window.addEventListener('DOMContentLoaded', ()=>{
     console.log('===== js/js-test.js DOMCContentLoaded START =====');

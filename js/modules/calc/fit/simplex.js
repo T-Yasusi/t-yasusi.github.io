@@ -24,23 +24,20 @@ export default (data_x, data_y, par, func, threshold, log_level)=>{
 	const r_par=new Array(simplex[0].parameter.length).fill(0);
 	for( let j=0; j<simplex[0].parameter.length; j++ ) r_par[j]=2*g_par[j]-simplex[simplex.length-1].parameter[j];
 	const r_point={ 'parameter': r_par, 'chi2': calcChi2(data_x, data_y, r_par, func) };
-//	console.log('Refection Point :', r_point);
+
 	if( simplex[0].chi2>r_point.chi2 ){
 	    const e_par=new Array(simplex[0].parameter.length).fill(0);
 	    for( let j=0; j<simplex[0].parameter.length; j++ ) e_par[j]=2*r_par[j]-g_par[j];
 	    const e_point={ 'parameter': e_par, 'chi2': calcChi2(data_x, data_y, e_par, func) };
 	    if( e_point.chi2<r_point.chi2 ){
 		simplex[simplex.length-1]=e_point;
-//		console.log('Expnad');
 	    }
 	    else{
 		simplex[simplex.length-1]=r_point;
-		console.log('Refrection 0');
 	    }
 	}
 	else if( simplex[0].chi2<r_point.chi2 && r_point.chi2<simplex[simplex.length-2].chi2 ){
 	    simplex[simplex.length-1]=r_point;
-//	    console.log('Refrection 1');
 	}
 	else{
 	    const c_par=new Array(simplex[0].parameter.length).fill(0);
@@ -61,7 +58,7 @@ export default (data_x, data_y, par, func, threshold, log_level)=>{
 	    }
 	}
 	simplex.sort((a,b)=> a.chi2<b.chi2 ? -1: 1);
-//	consoleOut(simplex);
+
 	counter++;
 	if( counter>MAX_LOOP ){
 	    console.log(`Iteration over ${MAX_LOOP}`);

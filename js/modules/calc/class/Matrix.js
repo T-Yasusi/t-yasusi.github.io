@@ -53,7 +53,7 @@ class Matrix extends Array{
 	if( this.colSize!==mat.colSize || this.rowSize!==mat.rowSize ) throw new Error('!!! Matrix.add not match size !!!');
 	const result=new Matrix(this.colSize, this.rowSize);
 	for( let i=0; i<this.colSize; i++ ){
-	    for( let j=0; j<this.colSize; j++ ){
+	    for( let j=0; j<this.rowSize; j++ ){
 		result[i][j]=add(this[i][j], mat[i][j]);
 	    }
 	}

@@ -5,8 +5,8 @@ const sub=(a, b=void 0)=>{
     else if( typeof(a)==='number' && typeof(b)==='number' ) return a-b;
     else if( typeof(a)==='object' && typeof(a.sub)==='function' ) return a.sub(b);
     else if( typeof(b)==='object' && typeof(b.minus)==='function' ) return add(a, b.minus());
-
-    throw new Error('!!! sub invaild !!! undefined calculation');
+    
+    throw new Error(`!!! sub invaild !!! undefined calculation \\${typeof a} ${typeof b}`);
 }
 
 export default (...args)=>{

@@ -5,7 +5,7 @@ const add=(a, b)=>{
     else if( typeof(a)==='number' && typeof(b)==='number' ) return a+b;
     else if( typeof(a)==='object' && typeof(a.add)==='function' ) return a.add(b);
     else if( typeof(b)==='object' && typeof(b.add)==='function' ) return b.add(a);
-    
+
     throw new Error('!!! add invaild !!! undefined calculation   '+typeof(a)+' '+typeof(b));
 }
 

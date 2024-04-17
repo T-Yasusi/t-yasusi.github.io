@@ -12,5 +12,7 @@ export default {
     polynomial: {
 	bastow: bastow,
 	dka: dka,
-    }
+    },
+
+    diff: diff
 }

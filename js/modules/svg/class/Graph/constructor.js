@@ -1,7 +1,7 @@
 import SVGGroup from '../SVGGroup.js'
 import createSVG from '../../createSVG.js'
 
-export default (self, group)=>{
+export default (self, group, xmin, xmax, ymin, ymax)=>{
     self._group=group;
     
     const [ x0, y0, width, height ] = [ 'x0', 'y0', 'width', 'height' ].map(a=> group[a]);
@@ -16,10 +16,10 @@ export default (self, group)=>{
         'height': 0.8*height
     });
     self._frame.setAttribute({ 'fill': 'none', 'stroke': 'black' });
-    self._xmax=1;
-    self._xmin=0;
-    self._ymax=1;
-    self._ymin=0;
+    self._xmin = xmin==null ? 0 : xmin;
+    self._xmax = xmax==null ? 1 : xmax;
+    self._ymin = ymin==null ? 0 : ymin;
+    self._ymax = ymax==null ? 1 : ymax;
 
     self._objects=[];
 }

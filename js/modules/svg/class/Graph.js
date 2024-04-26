@@ -7,7 +7,7 @@ import drawLabelX from './util/drawLabelX.js'
 import drawLabelY from './util/drawLabelY.js'
 
 export default class Graph{
-    constructor(group){ constructor(this, group) };
+    constructor(group, xmin, xmax, ymin, ymax){ constructor(this, group, xmin, xmax, ymin, ymax) };
 
     get xmax(){ return this._xmax; }
     get xmin(){ return this._xmin; }
@@ -22,7 +22,7 @@ export default class Graph{
     svgY(y){ return this._display.y0+this._display.height*(1.0-(y-this._ymin)/(this._ymax-this._ymin)); } 
     
     drawLine(x1, y1, x2, y2){ return drawLine(this, x1, y1, x2, y2); }
-    drawFunc(func, xmin=0, xmax=1, n=100){ return drawFunc(this, func, xmin, xmax, n); }
+    drawFunc(func, xmin=null, xmax=null, n=100){ return drawFunc(this, func, xmin, xmax, n); }
     drawCircle(x, y, r){ return drawCircle(this, x, y, r); }
     
     drawLabelX(N=5){ drawLabelX(this, N); }

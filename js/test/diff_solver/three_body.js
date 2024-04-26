@@ -26,7 +26,7 @@ const [ canvas, modalWrapper ]=setModal();
 const [ renderer, scene, camera, light ]=setThree(canvas);
 
 const intervalID=setInterval(()=>{
-    const result=solver.diff.eular(func, 0, arg, dt, nStep);
+    const result=solver.diff.rungeKutta(func, 0, arg, dt, nStep);
     t+=dt*nStep
     arg=result[result.length-1];
 

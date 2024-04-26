@@ -16,8 +16,8 @@ class Vector extends Array{
 	}
 	else if( args.every(a=> typeof(a)==='number' || a instanceof Complex ) ) super(...args);
 	else new Error('!!! Vector invalid construvtor !!!');
-//	console.log('constructor', this);
     }
+//	console.log('constructor', this);
 
     get size(){ return this.length; }
 

@@ -17,7 +17,7 @@ const svgTop=svg.setTop('#modal0');
 const graph=svgTop.makeGraph();
 const funcLine=graph.drawFunc(func, 0, n); 
 const line0=graph.drawLine(graph.xmin, 0, graph.xmax, 0);
-line0.setAttribute({'stroke-width': 0.5, 'stroke': 'black'});
+line0.setAttribute({'stroke-width': 0.5, 'stroke': 'blackx'});
 const line_ans=graph.drawLine(Math.sqrt(n), graph.ymin, Math.sqrt(n), graph.ymax);
 const line=graph.drawLine(x1, graph.ymin, x1, graph.ymax);
 let a=diff.central(func, x0);

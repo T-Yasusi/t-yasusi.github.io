@@ -23,7 +23,7 @@ class SVGGroup {
     get width(){ return this._width; }
     get height(){ return this._height; }
 
-    makeGraph(){ return new Graph(this); }
+    makeGraph(xmin, xmax, ymin, ymax){ return new Graph(this, xmin, xmax, ymin, ymax); }
     makeHist(xmin, xmax, N){ return new Histogram(this, xmin, xmax, N); }
 
     makeRect(x0, y0, x1, y1){ return create.rect(this, x0, y0, x1, y1); }

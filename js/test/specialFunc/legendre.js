@@ -1,3 +1,4 @@
+const n=10;
 const modalWrapper=document.getElementById('modal-wrapper0');
 const modal=document.getElementById('modal0');
 modalWrapper.style.display='block';
@@ -7,31 +8,43 @@ modal.style.height=0.75*0.75*modalWrapper.clientWidth+'px';
 const svgTop=svg.setTop('#modal0');
 const graph=svgTop.makeGraph(-1, 1, -1, 1);
 
-for( let i=0; i<10; i++ ){
+for( let i=0; i<n; i++ ){
+//    console.log(hslToRGB(i*360, 50, 50));
     graph.drawFunc(x=> specialFunc.legendre(i, x)).setAttribute({
 	'stroke-width': 2,
-	'stroke': hslToRGB(i*360/10, 1, 1)
+	'stroke': hslToRGB(i*360/n, 100, 50)
     });
 }
 modalWrapper.addEventListener('click', ()=>{ modalWrapper.style.display='none'; });
 
 function hslToRGB(h, s, l){
-    const rgbToColorCode=(r, g, b)=> '#'+('00'+parseInt(255*r).toString(16)).slice(-2)+('00'+parseInt(255*g).toString(16)).slice(-2)+('00'+parseInt(255*b).toString(16)).slice(-2);
-    
-    const max=l+s*(1-Math.abs(2*l-1))/2;
-    const min=l-s*(1-Math.abs(2*l-1))/2;
+    // HSL値を0から1の範囲に正規化
+    h /= 360;
+    s /= 100;
+    l /= 100;
 
-    console.log('h =', h, 's=', s, 'l=', l, 'min=', min, 'max=', max);
-    
-    if( max===min ) return rgbToColorCode(max, max, max);
-    else if( 0  <=h && h<60  ) return rgbToColorCode(max, min+(max-min)*h/60, min);
-    else if( 60 <=h && h<120 ) return rgbToColorCode(min+(max-min)*(120-h)/60, max, min);
-    else if( 120<=h && h<180 ) return rgbToColorCode(min, max, min+(max-min)*(h-120)/60);
-    else if( 180<=h && h<240 ) return rgbToColorCode(min, min+(max-min)*(240-h)/60, max);
-    else if( 240<=h && h<300 ) return rgbToColorCode(min+(max-min)*(h-240)/60, min, max);
-    else if( 300<=h && h<360 ) return rgbToColorCode(max, min, min+(max-min)*(360-h)/60);
-    else{
-	console.error('!!! Invaild hsl parameters !!!');
-	console.error('    h =', h, 's =', s, 'l =', l);
+    let r, g, b;
+
+    if(s === 0){
+        r = g = b = l; // a grayscale
+    }else{
+        const hue2rgb = (p, q, t) => {
+            if(t < 0) t += 1;
+            if(t > 1) t -= 1;
+            if(t < 1/6) return p + (q - p) * 6 * t;
+            if(t < 1/2) return q;
+            if(t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+            return p;
+        };
+
+        const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+        const p = 2 * l - q;
+        r = hue2rgb(p, q, h + 1/3);
+        g = hue2rgb(p, q, h);
+        b = hue2rgb(p, q, h - 1/3);
     }
+    return `rgb(${Math.round(r * 255)}, ${Math.round(g * 255)}, ${Math.round(b * 255)})`;
 }
+
+
+

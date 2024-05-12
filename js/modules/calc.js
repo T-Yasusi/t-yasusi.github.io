@@ -4,6 +4,7 @@ import sub from './calc/sub.js';
 import div from './calc/div.js';
 
 import factorial from './calc/factorial.js';
+import abs from './calc/abs.js';
 import sqrt from './calc/sqrt.js';
 import pow from './calc/pow.js';
 import exp from './calc/exp.js';
@@ -34,7 +35,7 @@ import fit from './calc/fit.js';
 
 export {
     add, sub, mul, div, // 四則演算
-    sqrt, pow, factorial, exp, sin, cos, tan, sinh, cosh, tanh, // 初等関数
+    sqrt, abs, pow, factorial, exp, sin, cos, tan, sinh, cosh, tanh, // 初等関数
     specialFunc, 
     diff, integral, // 微分、積分
     Complex, // 複素数クラス

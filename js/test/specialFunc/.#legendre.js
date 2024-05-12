@@ -1,1 +1,0 @@
-kentaro@kentaro-HP-Pavilion-Laptop-15-cu1xxx.300831:1713339523

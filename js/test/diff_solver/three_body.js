@@ -25,6 +25,9 @@ const func=(t, arg)=>{
 const [ canvas, modalWrapper ]=setModal();
 const [ renderer, scene, camera, light ]=setThree(canvas);
 
+const controls=new OrbitControls(camera, renderer.domElement);
+controls.enableDamping=true;
+
 const intervalID=setInterval(()=>{
     const result=solver.diff.rungeKutta(func, 0, arg, dt, nStep);
     t+=dt*nStep
@@ -76,10 +79,10 @@ function setModal(){
     canvas.style.width=0.75*modalWrapper.clientWidth+'px';
     canvas.style.height=0.75*0.75*modalWrapper.clientWidth+'px';
     
-    modalWrapper.addEventListener('click', ()=>{
-	clearInterval(intervalID);
-	modalWrapper.style.display='none';
-    });
+    // modalWrapper.addEventListener('click', ()=>{
+    // 	clearInterval(intervalID);
+    // 	modalWrapper.style.display='none';
+    // });
 
     return [ canvas, modalWrapper ];
 }

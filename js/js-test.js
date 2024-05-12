@@ -5,6 +5,8 @@ loadModule('./output.js');
 loadModule('./modules/calc.js');
 loadModule('./modules/svg.js');
 loadModule('./modules/three.js');
+// loadModule('../node_modules/three//examples/jsm/controls/OrbitControls.js');
+
 
 window.addEventListener('DOMContentLoaded', ()=>{
     console.log('===== js/js-test.js DOMCContentLoaded START =====');

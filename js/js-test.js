@@ -33,7 +33,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
 	const searchParam=new URLSearchParams(location.search);
 	if( searchParam.has('src') ){
 	    const elem=[...codeSelect.children].find(e=> e.value===searchParam.get('src'));
-	    elem.selected=true;
+	    if( elem ) elem.selected=true;
 	}	
 	if( searchParam.has('run') ) document.getElementById('auto-run').checked=true;
 	codeSelect.dispatchEvent(new Event('change'));

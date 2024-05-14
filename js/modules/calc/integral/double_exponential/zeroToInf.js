@@ -28,21 +28,21 @@ export default (f, thre=1.0e-8)=>{
     let range=0.1*max_range;
     const step=range;
 
-    console.log(range, integradFunc(range), integradFunc(minus(range)));
+//    console.log(range, integradFunc(range), integradFunc(minus(range)));
     for( let x=range; x<max_range; x+= step ) console.log(x, integradFunc(minus(x)), integradFunc(x));
 
     while( integradFunc(minus(range))>1.0e-4 || integradFunc(range)>1.0e-4 ){
         range+=step;
         if( range>max_range ) throw new Error('!!! integral.zeroToInf not found valid range !!!');
     }
-    console.log(range);
+//    console.log(range);
 
     let val1=innerIntegral(range), val2=innerIntegral(range+step);
     while( true ){
         range+=step;
         val1=val2;
         val2=innerIntegral(range+step);
-        console.log(range, val1, val2, abs(val1-val2), thre);
+//        console.log(range, val1, val2, abs(val1-val2), thre);
         if( abs(val1)>1 && abs((val1-val2)/val1)<thre ) break;
         if( abs(val1-val2)<thre ) break;
 

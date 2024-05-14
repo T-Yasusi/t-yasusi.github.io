@@ -7,7 +7,7 @@ import minusInfToInf from './integral/double_exponential/minusInfToInf.js'
 export default {
     trapezoid: trapezoid, 
     simpson: simpson,
-    de: {
+    double_exponential: {
 	minusOneToOne: minusOneToOne,
 	zeroToInf: zeroToInf,
 	minusInfToInf: minusInfToInf,

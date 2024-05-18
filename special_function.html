@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>特殊関数解説</title>
+    <link rel="stylesheet" href="css/default.css">
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+  </head>
+
+  <body>
+    <h1>特殊関数-解説ページ</h1>
+    <h2>多項式</h2>
+    <details>
+      <summary><h3>ルジャンドル関数</h3></summary>
+      <h4>微分方程式</h4>
+      \[
+      \frac{d}{dx} \left[ (1-x^2)\frac{d}{dx}f(x) \right] + \lambda (\lambda+1) f(x)=0
+      \]
+      <h4>直行関係</h4>
+      \[
+      \int^1_{-1}P_m(x)P_n(x)dx=\frac{2}{2n-1}\delta_{mn}
+      \]
+      <h4>漸化式</h4>
+      \[
+      P_n(x)=\frac{1}{n} \left\{ (2n-1)P_{n-1}(x)-(n-1)P_{n-2}(x) \right\}
+      \]
+      <h4>具体系</h4>
+      \[
+      P_0(x)=1 \\
+      P_1(x)=x \\
+      P_2(x)=\frac{1}{2}(3x^2+1) \\
+      P_3(x)=\frac{1}{2}(5x^3-3x) \\
+      \cdots
+      \]
+    </details>
+    <details>
+      <summary><h3>エルミート関数</h3></summary>
+      <h4>微分方程式</h4>
+      \[
+      \left[ \frac{d^2}{d^2x} -2\frac{dx}{dx} + 2n \right] f(x)=0
+      \]
+      <h4>直行関係</h4>
+      \[
+      \int^{\infty}_{-\infty}H_m(x)H_n(x) e^{-x^2} dx=\sqrt{\pi}2^n n!\delta_{mn}
+      \]
+      <h4>漸化式</h4>
+      \[
+      H_n(x)=2xH_{n-1}(x)-2(n-1)H_{n-2}(x)
+      \]
+      <h4>具体系</h4>
+      \[
+      H_0(x)=1 \\
+      H_1(x)=2x \\
+      H_2(x)=4x^2-2\\
+      H_3(x)=8x^3-12x\\ 
+      \cdots
+      \]
+    </details>
+    <details>
+      <summary><h3>ラゲール関数</h3></summary>
+      <h4>微分方程式</h4>
+      \[
+      \left[ x\frac{d^2}{d^2x} + (1-x)\frac{d}{dx} +n \right] f(x)=0
+      \]
+      <h4>直行関係</h4>
+      \[
+      \int^{\infty}_{0}L_m(x)L_n(x) e^{-x} dx=\delta_{mn}
+      \]
+      <h4>漸化式</h4>
+      \[
+      L_n(x)=\frac{1}{n}\left\{ (2n-1-x)L_{n-1}(x)-(n-1)L_{n-2}(x) \right\}
+      \]
+      <h4>具体系</h4>
+      \[
+      L_0(x)=1 \\
+      L_1(x)=-x+1 \\
+      L_2(x)=x^2-4x+2\\
+      L_3(x)=x^4-16x+72x^2-96x+24\\ 
+      \cdots
+      \]
+    </details>
+  </body>
+</html>

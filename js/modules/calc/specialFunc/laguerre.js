@@ -13,8 +13,8 @@ export default (n, x)=>{
         for( let i=2; i<n; i++ ){
             L_n0=L_n1;
             L_n1=L_n2;
+//	    L_n2=sub(mul(add(2*i, 3, minus(x)),L_n1), mul(i+1, i+1, L_n0));
 	    L_n2=div(sub(mul(add(2*i, 1, minus(x)),L_n1), mul(i, L_n0)), i+1);
-//	    L_n2=sub(mul(add(2*i, 1, minus(x)),L_n1), mul(i, L_n0));
         }
         return L_n2;
     }    

@@ -85,18 +85,40 @@
 
     <details>
       <summary><h3>ルジャンドル陪関数<h3></summary>
-      <h4>漸化式</h4>
+      <h4>微分方程式</h4>
       \[
-      P_l^m(x)=\frac{1}{l-m}\left\{ (2l-1)xP_{l-1}^m(x)-(l-1+m)P_{l-2}^m(x) \right\}
-      \]
-      <h4>直交関係</h4>
-      \[
-      \int^{1}_{-1}P^m_l(x)P^m_{k}(x) dx = \frac{2}{2l+1} \frac{(l+m)!}{(l-m)!} \delta_{lk} 
+      (1-x^2)\frac{d^2}{d^2x}P^m_l(x)-2x\frac{d}{dx}P^m_l(x)+\left\{ l(l+1)-\frac{m^2}{1-x^2} \right\}P^m_l(x)=0
       \]
       <h4>初期値</h4>
       \[
       P^m_m(x)=(2m-1)!!(1-x^2)^{\frac{m}{2}}
       \]
+      <h4>漸化式</h4>
+      \[
+      P_{l+1}^m(x)=\frac{1}{l+1-m}\left\{ (2l+1)xP_{l}^m(x)-(l+m)P_{l-1}^m(x) \right\}
+      \]
+      <p>\(m\)は次数(degree)、\(l\)は位数(order)。</p>
+      <h4>直交関係</h4>
+      \[
+      \int^{1}_{-1}P^m_l(x)P^m_{k}(x) dx = \frac{2}{2l+1} \frac{(l+m)!}{(l-m)!} \delta_{lk} 
+      \]
+      <h4>位数の符号反転</h4>
+      \[
+      P_l^{-m}(x)=(-1)^m\frac{(l-m)!}{(l+m)!}P^m_l(x)
+      \]
+      <details>
+	<summary><h4>規格化されたルジャンドル関数</h4></summary>
+	<h4>初期値</h4>
+	\[
+	P^m_m(x)=\sqrt{\frac{1}{2}\frac{(2m+1)!}{(2m)!}}(1-x^2)^{\frac{m}{2}}
+	\]
+	
+	<h4>漸化式</h4>
+	\[
+	P_{l+1}^m(x)=\sqrt{\frac{1}{(l+1+m)(l+1-m)}} \left\{ \sqrt{(2l+1)(2l+3)}xP_l^m(x) - \sqrt{\frac{(2l+3)(l+m)(l-m)}{2l-1}}P^m_{l-1}(x) \right\}
+	\]
+
+      </details>
     </details>
   </body>
 </html>

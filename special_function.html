@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <h1>特殊関数-解説ページ</h1>
+    <h1>特殊関数-解説ページ</h1>    
     <h2>多項式</h2>
     <details>
       <summary><h3>ルジャンドル関数</h3></summary>
@@ -34,6 +34,25 @@
       P_2(x)=\frac{1}{2}(3x^2+1) \\
       P_3(x)=\frac{1}{2}(5x^3-3x) \\
       \cdots
+      \]
+    </details>
+    <details>
+      <summary> <h3>ラゲール陪関数</h3> </summary>
+      <h4>微分方程式</h4>
+      \[
+      \left\{ x\frac{d^2}{d^2x}+(k+1-x)\frac{d}{dx}+(n-k) \right\}L_n^k(x)=0
+      \]    
+      <h4>直交関係</h4>
+      \[
+      \int^{\infty}_0 e^{-x}x^k L^k_m(x)L^k_n(x) dx=\frac{(m+k!)}{m!}\delta_{mn}
+      \]
+      <h4>漸化式</h4>
+      \[
+      L^m_{n+1}(x)=\frac{1}{n+1-m}\left\{ (n+1)(2n+1-m-x)L^m_n(x)-n^2(n+1)L^m_{n-1}(x) \right\}
+      \]
+      <h4>初期値</h4>
+      \[
+      L^m_m(x)=m!
       \]
     </details>
     <details>
@@ -110,14 +129,12 @@
 	<summary><h4>規格化されたルジャンドル関数</h4></summary>
 	<h4>初期値</h4>
 	\[
-	P^m_m(x)=\sqrt{\frac{1}{2}\frac{(2m+1)!}{(2m)!}}(1-x^2)^{\frac{m}{2}}
+	P^m_m(x)=\sqrt{\frac{2m+1}{2}\frac{1}{(2m)!}}(2m-1)!!(1-x^2)^{\frac{m}{2}}
 	\]
-	
 	<h4>漸化式</h4>
 	\[
 	P_{l+1}^m(x)=\sqrt{\frac{1}{(l+1+m)(l+1-m)}} \left\{ \sqrt{(2l+1)(2l+3)}xP_l^m(x) - \sqrt{\frac{(2l+3)(l+m)(l-m)}{2l-1}}P^m_{l-1}(x) \right\}
 	\]
-
       </details>
     </details>
   </body>

@@ -1,5 +1,5 @@
-import asociatedLegendre from './normalized/asociatedLegendre.js'
+import associatedLegendre from './normalized/associatedLegendre.js'
 
 export default {
-    asociatedLegendre: asociatedLegendre,
+    associatedLegendre: associatedLegendre,
 }

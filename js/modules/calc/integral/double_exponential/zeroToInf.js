@@ -29,7 +29,7 @@ export default (f, thre=1.0e-8)=>{
     const step=range;
 
 //    console.log(range, integradFunc(range), integradFunc(minus(range)));
-    for( let x=range; x<max_range; x+= step ) console.log(x, integradFunc(minus(x)), integradFunc(x));
+//    for( let x=range; x<max_range; x+= step ) console.log(x, integradFunc(minus(x)), integradFunc(x));
 
     while( integradFunc(minus(range))>1.0e-4 || integradFunc(range)>1.0e-4 ){
         range+=step;

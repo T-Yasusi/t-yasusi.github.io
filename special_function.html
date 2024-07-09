@@ -44,15 +44,16 @@
       \]    
       <h4>直交関係</h4>
       \[
-      \int^{\infty}_0 e^{-x}x^k L^k_m(x)L^k_n(x) dx=\frac{(m+k!)}{m!}\delta_{mn}
+      \int^{\infty}_0 e^{-x}x^k L^k_m(x)L^k_n(x) dx=\frac{(m+k)!}{m!}\delta_{mn}
       \]
       <h4>漸化式</h4>
       \[
-      L^m_{n+1}(x)=\frac{1}{n+1-m}\left\{ (n+1)(2n+1-m-x)L^m_n(x)-n^2(n+1)L^m_{n-1}(x) \right\}
+      L^m_{l+1}(x)=\frac{(2l+1+m-x)L^m_l(x)-(l+m)L^m_{l-1}(x)}{l+1}
       \]
       <h4>初期値</h4>
       \[
-      L^m_m(x)=m!
+      L^m_0(x)=0\\
+      L^m_1(x)=1+m-x
       \]
     </details>
     <details>

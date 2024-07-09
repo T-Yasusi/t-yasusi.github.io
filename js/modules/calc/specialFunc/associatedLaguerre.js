@@ -12,19 +12,17 @@ export default (m, n, x)=>{ // L^m_n(x)
 	console.log('associatedLaguerre n<m  return 0;');
 	return 0;
     }
+    if( m===0 && n===0 ) return 1;
+    
+    let L_l0=1;
+    let L_l1=sub(1+m, x);
+    if( n===1 ) return L_l1;
+    let L_l2=div(sub(mul(sub(m+3, x), L_l1), mul(m+1, L_l0)), 2);
 
-    let L_l2=0;
-    let L_l1=mul(pow(-1, m), factorial(m));
-//    console.log('m =', m, ' n=', n, ' L_l1=', L_l1);
-    if( m===n ) return L_l1;
-    let L_l0=mul(m+1, sub(m+1, x), L_l1);
-
-//    console.log('x=', x, 'L_l0 =', L_l0);
-    for( let i=m+1; i<n; i++ ){
-	L_l2=L_l1;
-	L_l1=L_l0;
-
-	L_l0=div(sub(mul(i+1, sub(2*i+1-m, x), L_l1), mul(i*i*(i+1), L_l2)) , i+1-m)
+    for( let i=2; i<n; i++ ){
+	L_l0=L_l1;
+	L_l1=L_l2;
+	L_l2=div(sub(mul(sub(2*i+1+m, x), L_l1), mul((i+m), L_l0)), i+1); 
     }
-    return L_l0;
+    return L_l2;
 }

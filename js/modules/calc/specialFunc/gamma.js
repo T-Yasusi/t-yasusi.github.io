@@ -10,9 +10,11 @@ import pow from '../pow.js'
 
 import integral from '../integral.js'
 
-export default x=>{
-    if( typeof(x)!=='number' || x instanceof Complex !==false ) throw new Error(`!!! specialFunc.gamma support number and Complex !!! \n typeof(${x})`);
+import util from '../util.js'
 
+export default x=>{
+    if( !util.isNumerical(x) ) throw new Error(`!!! specialFunc.gamma support number and Complex !!! \n typeof(${x})`);
+    
     if( typeof(x)==='number' && x===0 ) return Infinity;
     if( typeof(x)==='number' && Number.isInteger(x) && x>0 ) return factorial(x-1);
     if( typeof(x)==='number' && Number.isInteger(x) && x<0 ) return Infinity;

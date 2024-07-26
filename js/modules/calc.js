@@ -8,6 +8,7 @@ import abs from './calc/abs.js';
 import sqrt from './calc/sqrt.js';
 import pow from './calc/pow.js';
 import exp from './calc/exp.js';
+import log from './calc/log.js';
 import sin from './calc/sin.js';
 import cos from './calc/cos.js';
 import tan from './calc/tan.js';
@@ -35,8 +36,8 @@ import fit from './calc/fit.js';
 
 export {
     add, sub, mul, div, // 四則演算
-    sqrt, abs, pow, factorial, exp, sin, cos, tan, sinh, cosh, tanh, // 初等関数
-    specialFunc, 
+    sqrt, abs, pow, factorial, exp, log, sin, cos, tan, sinh, cosh, tanh, // 初等関数
+    specialFunc, // 特殊関数x
     diff, integral, // 微分、積分
     Complex, // 複素数クラス
     linearAlgebra,
@@ -45,6 +46,6 @@ export {
     
     util,
     random, // 乱数名前空間
-    fit,
+    fit, 
 };
 

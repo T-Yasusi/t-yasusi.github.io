@@ -1,19 +1,18 @@
-export default (self, func, xmin, xmax, n)=>{
-
-    if( xmin!=null && xmax!=null ){
-	self._xmin=xmin;
-	self._xmax=xmax;
-    }
+export default (self, func, n)=>{
+    // if( xmin!=null && xmax!=null ){
+    // 	self._xmin=xmin;
+    // 	self._xmax=xmax;
+    // }
     const x_points=[], y_points=[];
     const dx=(self._xmax-self._xmin)/n;
     for( let i=0; i<=n; i++ ){
         x_points.push(self._xmin+i*dx);
         y_points.push(func(self._xmin+i*dx));	
     }
-    if( xmin!=null && xmax!=null ){
-	self._ymin=Math.min(...y_points);
-	self._ymax=Math.max(...y_points);
-    }
+    // if( xmin!=null && xmax!=null ){
+    // 	self._ymin=Math.min(...y_points);
+    // 	self._ymax=Math.max(...y_points);
+    // }
 
     const scaleX=1.0/(self._xmax-self._xmin);
     const scaleY=1.0/(self._ymax-self._ymin);

@@ -22,7 +22,7 @@ export default class Graph{
     svgY(y){ return this._display.y0+this._display.height*(1.0-(y-this._ymin)/(this._ymax-this._ymin)); } 
     
     drawLine(x1, y1, x2, y2){ return drawLine(this, x1, y1, x2, y2); }
-    drawFunc(func, xmin=null, xmax=null, n=100){ return drawFunc(this, func, xmin, xmax, n); }
+    drawFunc(func, n=100){ return drawFunc(this, func, n); }
     drawCircle(x, y, r){ return drawCircle(this, x, y, r); }
     
     drawLabelX(N=5){ drawLabelX(this, N); }

@@ -27,13 +27,11 @@ export default {
 	const path=createSVG('path');
 	let attrBody='M ';
 	for( let i=0; i<x_points.length; i++ ){
-	    console.log(x_points[i], y_points[i]);
 	    if( !Number.isFinite(x_points[i]) || !Number.isFinite(y_points[i]) ) continue;
-	    console.log('OK');
 	    attrBody+=(parent.x0+parent.width*x_points[i])+','+(parent.y0+parent.height*(1.0-y_points[i]))+' ';
 	}
 	const obj=new SVGPath(parent, path);
-	console.log(attrBody);
+//	console.log(attrBody);
 	obj.setAttribute({ 'fill': 'none',
 			   'stroke-width': 1,
 			   'stroke': 'black',

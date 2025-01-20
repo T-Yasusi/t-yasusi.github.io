@@ -1,4 +1,4 @@
-const intervalTime=100; // 1s
+const intervalTime=100; 
 const dt=10e-6, nStep=100;
 
 const N=3;

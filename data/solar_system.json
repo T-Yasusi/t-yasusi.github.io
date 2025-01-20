@@ -1,0 +1,76 @@
+{
+    "gravitational_constant": 2.959122082855911E-4,
+    "bodies": {
+	"Sun": {
+	    "mass": 1,
+	    "radius": 109.2, 
+	    "position": [0, 0, 0],
+	    "velocity": [0, 0, 0],
+	    "color": "red"
+	},
+	"Mercury": {
+	    "mass": 1.66E-7,
+	    "radius": 0.383,
+	    "position": [0.1344, -0.3734, -0.0530],
+	    "velocity": [47.36, 16.06, -3.31],
+	    "color": "skyblue"
+	},
+	"Venus": {
+	    "mass": 2.45E-6,
+	    "radius": 0.949,
+	    "position": [-0.532, 0.271, 0.0303],
+	    "velocity": [-15.43, -32.50, -1.80],
+	    "color": "gold"
+	},
+	"Earth": {
+	    "mass": 3.00E-6,
+	    "radius": 1,
+	    "position": [-0.0172, 0.9839, -0.00000073],
+	    "velocity": [-29.29, -0.512, 0.0],
+	    "color": "royalblue"	    
+	},
+	"Mars": {
+	    "mass": 3.22E-7,
+	    "radius": 0.532,
+	    "position": [1.381, -0.3804, -0.0309],
+	    "velocity": [8.15, 26.44, 0.11],
+	    "color": "coral"
+	},
+	"Jupiter": {
+	    "mass": 0.0009543,
+	    "radius": 11.21,
+	    "position": [4.594, -0.0653, -0.1007],
+	    "velocity": [0.206, 13.35, -0.102],
+	    "color": "burlywood"
+	},
+	"Saturn": {
+	    "mass": 0.0002857,
+	    "radius": 9.45,
+	    "position": [8.682, -0.0532, -0.2028],
+	    "velocity": [0.268, 9.75, -0.091],
+	    "color": "sandybrown"
+	},
+	"Uranus": {
+	    "mass": 4.37E-5,
+	    "radius": 4.01,
+	    "position": [17.36, 9.91, -0.1894],
+	    "velocity": [-3.625, 5.53, 0.055],
+	    "color": "aquamarine"
+	},
+	"Neptune": {
+	    "mass": 5.15E-5,
+	    "radius": 3.88,
+	    "position": [29.14, -6.68, -0.5365],
+	    "velocity": [1.197, 5.48, -0.123],
+	    "color": "dimgray"
+	},
+	"Pluto": {
+	    "mass": 6.55E-9,
+	    "radius": 0.18,
+	    "position": [33.58, -11.14, 6.04],
+	    "velocity": [1.22, 3.73, -0.74],
+	    "color": "gainsboro"		
+	}
+    }
+}
+

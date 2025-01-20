@@ -18,9 +18,17 @@ window.addEventListener('DOMContentLoaded', ()=>{
     const codeSelect=document.getElementById('code-select');
     codeSelect.addEventListener('change', ()=>{
         const filePath=[...codeSelect.children].find(e=> e.selected).value;
+
+	const searchParam=new URLSearchParams(location.search);
+	if( filePath !== searchParam.get('src') ){
+	    searchParam.set('src', filePath);
+            if( document.getElementById('auto-run').checked ) searchParam.set('run', '');
+	    
+	    const url=new URL(window.location.href);
+	    window.location.replace(url.origin + url.pathname + "?"+(new URLSearchParams(searchParam)).toString());
+	}
         if( filePath.length>0 ){
 	    aceUtil.loadText('./js/test/'+filePath).then(()=>{
-//		console.log('Load file ./js/test/'+filePath);
 		if( document.getElementById('auto-clear').checked ) clearResult();
                 if( document.getElementById('auto-run').checked ) run();
 	    });

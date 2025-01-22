@@ -136,7 +136,7 @@ class Matrix extends Array{
 - integral.de.zeroToInf $(f(x), \Delta x=1.0^{-8})$ $0$から $\infty$までの積分
 - integral.de.minusInfToInf $(f(x), \Delta x=1.0^{-8})$ $-\infty$から $\infty$までの積分
 
-#### $f(x)=0$の数値解放
+#### $f(x)=0$の数値解法
 - solver.byselection $(f(x), x_0, \Delta x=1.0^{-8})$ 二分法
 - solver.newton $(f(x), x_0, \Delta x=1.0^{-8})$ ニュートン法
 #### 多項式の解放

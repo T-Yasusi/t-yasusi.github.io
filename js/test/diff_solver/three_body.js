@@ -78,11 +78,13 @@ function setModal(){
     modalWrapper.style.display='block';
     canvas.style.width=0.75*modalWrapper.clientWidth+'px';
     canvas.style.height=0.75*0.75*modalWrapper.clientWidth+'px';
-    
-    // modalWrapper.addEventListener('click', ()=>{
-    // 	clearInterval(intervalID);
-    // 	modalWrapper.style.display='none';
-    // });
+
+    modalWrapper.addEventListener('click', (event)=>{
+        if( !canvas.contains(event.target) ){
+            clearInterval(intervalID);
+            modalWrapper.style.display='none';
+        }
+    });
 
     return [ canvas, modalWrapper ];
 }
